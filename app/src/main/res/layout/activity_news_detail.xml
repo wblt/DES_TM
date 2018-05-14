@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="wb.com.cctm.activity.NewsDetailActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_title"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="全球区块链交流峰会●杭州站已圆满落幕"
+            android:textColor="@color/main_bottom_text_color_selector"
+            android:textSize="14dp"/>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="@color/main_botton_text_color"></LinearLayout>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="尊敬的SHC会员:"
+            android:textColor="@color/white"
+            android:textSize="12dp"/>
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="     2018CMCC全球区块链交流峰会●杭州站已园满落幕，本届峰会出席人数达1500人，各位CMCC会员的支持与厚爱为
+            CMCC的发展注入了更多新的活力与激情。此前，为迎接2018CMCC全球区块链交流峰会的召开，平
+            台临时将能量钱包转入算力钱包的CMCC额度提升至10000个。出于平台稳定性、会员参与性等方面的综合考量，现平台决
+            定将此额度回调至5000，此举符合平台的可持续化运营策略，也契合绝大多数会员朋友的实际交易需求。
+            本项更新事宜将于公告发布时即刻生效，对此给您造成的不便之处，敬请谅解! 我们也将秉承用户至上的运营理念为您提供更优质的服务体验。"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:lineSpacingExtra="5dp"/>
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SHC运营中心"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:gravity="end"/>
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2018年4月20 13:23:34"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:gravity="end"/>
+    </LinearLayout>
+</LinearLayout>

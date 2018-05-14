@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "wb.com.des"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 20
+        versionName "1.0.20"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    // dataBinding 加入官方组件绑定框架
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    //没有使用特殊Header，可以不加这行
+
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+    compile files('libs/lite-orm-1.7.0.jar')
+    compile project(':mypwdinputlibrary')
+    compile project(':imagewatcher')
+    compile project(':imagepicker')
+    compile files('libs/cos-sdk-android-1.4.3.jar')
+    compile project(':compresshelper')
+    compile files('libs/core-3.3.0.jar')
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.github.gittjy:LoadingDialog:1.0.2'
+    compile 'com.android.support:support-v4:26.+'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.android.support:design:26.+'
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-3'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-3'
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'org.xutils:xutils:3.3.36'
+    compile 'com.alibaba:fastjson:1.2.46'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+    compile 'com.github.traex.rippleeffect:library:1.3'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+}

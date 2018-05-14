@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="myInputPwdBase_blue">#0887ee</color>
+    <!--<color name="myInputPwdBase_gray">#f0f0f6</color>-->
+    <color name="myInputPwdBase_gray">#424242</color>
+    <color name="main_bottom_text_color_selector">#FFFFFF</color>
+    <color name="white">#ffffff</color>
+</resources>

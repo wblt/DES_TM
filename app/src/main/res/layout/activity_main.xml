@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/main_bottom"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@android:color/transparent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="DisableBaselineAlignment">
+                <RelativeLayout
+                    android:id="@+id/btn_container_home"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <Button
+                        android:id="@+id/btn_deliver"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ripple_main_bg"
+                        android:drawableTop="@drawable/main_deliver_icon_selector"
+                        android:onClick="onTabClicked"
+                        android:paddingBottom="2dip"
+                        android:paddingTop="7dip"
+                        android:scaleType="matrix"
+                        android:text="首页"
+                        android:textColor="@drawable/main_botton_text_selector"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/btn_container_address_list"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <Button
+                        android:id="@+id/btn_market"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawableTop="@drawable/main_market_icon_selector"
+                        android:onClick="onTabClicked"
+                        android:paddingBottom="2dip"
+                        android:background="@drawable/ripple_main_bg"
+                        android:paddingTop="7dip"
+                        android:scaleType="matrix"
+                        android:text="交易"
+                        android:textColor="@drawable/main_botton_text_selector"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/btn_container_mine"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" >
+                    <Button
+                        android:id="@+id/btn_mine"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawableTop="@drawable/main_mine_icon_selector"
+                        android:onClick="onTabClicked"
+                        android:background="@drawable/ripple_main_bg"
+                        android:paddingBottom="2dip"
+                        android:paddingTop="7dip"
+                        android:scaleType="matrix"
+                        android:text="我的"
+                        android:textColor="@drawable/main_botton_text_selector"
+                        android:textSize="12sp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/main_bottom" />
+    </RelativeLayout>
+</FrameLayout>

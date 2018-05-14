@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mainPrimary">#000000</color>
+    <color name="mainPrimary2">#000000</color>
+    <color name="bottom_color">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black">#000000</color>
+    <color name="transparent_color">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="wallet_address_text_color">#FFFFFF</color>
+    <color name="wallet_bg_blue">#1bb0d6</color>
+    <color name="me_bg_blue">#2f9dd1</color>
+    <color name="title_font_color">#4d4d4d</color>//一级文字颜色
+    <color name="second_font_color">#cc4d4d4d</color>//二级文字颜色
+    <color name="three_font_color">#808080</color>//三级文字颜色
+    <color name="four_font_color">#333333</color>//四级文字颜色
+    <color name="market_line">#208dc4</color>
+    <color name="market_text_color">#FFFFFF</color>
+    <color name="market_increase_text_bg">#e53935</color>
+    <color name="market_drop_text_bg">#52d869</color>
+    <color name="asset_item_color">#329fc9</color>
+    <color name="circular_bead_blue">#30a1da</color>
+    <color name="hint_text_color">#cccccc</color>
+    <!--zxing-->
+    <color name="contents_text">#000000</color>
+    <color name="encode_view">#FFFFFF</color>
+    <color name="possible_result_points">#ffbd21</color> <!-- Android standard ICS color -->
+    <color name="result_minor_text">#FFFFFF</color>
+    <color name="result_points">#99cc00</color> <!-- Android standard ICS color -->
+    <color name="result_text">#FFFFFF</color>
+    <color name="result_view">#000000</color>
+    <color name="status_text">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="viewfinder_laser">#cc0000</color> <!-- Android standard ICS color -->
+    <color name="viewfinder_mask">#50000000</color>
+    <color name="main_botton_text_color">#FFFFFF</color>
+    <color name="main_bottom_text_color_selector">#FFFFFF</color>
+    <color name="yellow">#fd9c06</color>
+    <color name="red">#EE2C2C</color>
+    <color name="grey">#BDBDBD</color>
+    <color name="color_one">#FDE4BB</color>
+    <color name="color_two">#FCD2A1</color>
+    <color name="color_three">#EF8273</color>
+    <color name="color_green">#31AA28</color>
+
+</resources>

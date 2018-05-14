@@ -1,0 +1,86 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@style/AppBaseTheme">
+    </style>
+
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--导航栏的颜色-->
+        <item name="colorPrimary">@color/mainPrimary</item>
+        <!--通知栏等的颜色-->
+        <item name="colorPrimaryDark">@color/mainPrimary</item>
+        <!--字体的主题颜色-->
+        <item name="android:textColorPrimary">@color/mainPrimary</item>
+        <!--解决textView全局大小写问题-->
+        <item name="android:textAllCaps">false</item>
+        <!-- toolbar中带动画效果的箭头，设置动画形式与箭头颜色 -->
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <!-- toolbar中menu的文字的颜色,并非溢出菜单的内容文字颜色 -->
+        <item name="actionMenuTextColor">@color/mainPrimary</item>
+        <item name="android:windowAnimationStyle">@style/pageInOut</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <!--应用程序启动页面，消除app启动的白屏页面-->
+    <style name="AppGuide" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@mipmap/uoko_guide_background_1</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="ThemeSplash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@mipmap/fullscreen</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+<!-- 左边的箭头指示-->
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style><!--自定义的固定宽高比-->
+
+    <!-- 页面跳转间的过渡动画 -->
+    <style name="pageInOut">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_from_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_to_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_from_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_to_right</item>
+    </style>
+
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="dialog_anim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/anim_dialog_exit</item>
+    </style>
+
+    <style name="PopupwindowAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/popupwindow_enter</item>
+        <item name="android:windowExitAnimation">@anim/popupwindow_exit</item>
+    </style>
+
+    <style name="ActionSheet" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowAnimationStyle">@style/PopupwindowAnimation</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="ZxingTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/result_view</item>
+        <item name="colorPrimaryDark">@color/result_view</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+</resources>
