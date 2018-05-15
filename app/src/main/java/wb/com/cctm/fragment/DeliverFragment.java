@@ -111,7 +111,7 @@ public class DeliverFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        homepage();
+        notice();
     }
 
     private void initview(View view) {
@@ -136,32 +136,6 @@ public class DeliverFragment extends BaseFragment {
     public void onDestroy() {
         unbinder.unbind();
         super.onDestroy();
-    }
-
-    private void homepage() {
-        RequestParams requestParams= FlowAPI.getRequestParams(FlowAPI.homePage);
-        requestParams.addParameter("USER_NAME", SPUtils.getString(SPUtils.username));
-        MXUtils.httpPost(requestParams,new CommonCallbackImp("INDEX - 首页",requestParams, (BaseActivity) getActivity()){
-            @Override
-            public void onSuccess(String data) {
-                super.onSuccess(data);
-                JSONObject jsonObject = JSONObject.parseObject(data);
-                String result = jsonObject.getString("code");
-                String message = jsonObject.getString("message");
-                if (result.equals(FlowAPI.SUCCEED)) {
-                    String pd = jsonObject.getString("pd");
-                    JSONObject pd_obj = JSONObject.parseObject(pd);
-                    SPUtils.putString(SPUtils.wallet_address,pd_obj.getString("W_ADDRESS"));
-                    SPUtils.putString(SPUtils.headimgpath,pd_obj.getString("HEAD_URL"));
-                    SPUtils.putString(SPUtils.nick_name,pd_obj.getString("NICK_NAME"));
-                    SPUtils.putString(SPUtils.safety,pd_obj.getString("IFPAS"));
-                    SPUtils.putString(SPUtils.w_energy,pd_obj.getString("W_ENERGY"));
-                    notice();
-                } else {
-                    ToastUtils.toastutils(message,getActivity());
-                }
-            }
-        });
     }
 
     private void notice() {

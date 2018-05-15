@@ -130,13 +130,6 @@ public class UserInfoActivity extends BaseActivity {
     }
 
     private void initView() {
-        top_right_text.setText("完成");
-        top_right_text.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cgPersonMes();
-            }
-        });
         dialog = ActionSheet.showSheet(this,R.layout.actionsheet_photo);
         TextView cancel = dialog.findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -202,7 +195,7 @@ public class UserInfoActivity extends BaseActivity {
         imagePicker.setOutPutY(1000);                         //保存文件的高度。单位像素
     }
 
-    @OnClick({R.id.ll_nick,R.id.tv_head_edit,R.id.iv_img_head})
+    @OnClick({R.id.ll_nick,R.id.tv_head_edit,R.id.iv_img_head,R.id.btn_complete})
     void viewClick(View view) {
         switch (view.getId()) {
             case R.id.ll_nick:
@@ -214,6 +207,9 @@ public class UserInfoActivity extends BaseActivity {
                 urlList.clear();
                 urlList.add(SPUtils.getString(SPUtils.headimgpath));
                 v_image_watcher.show(iv_img_head,groupList,urlList);
+                break;
+            case R.id.btn_complete:
+                cgPersonMes();
                 break;
             default:
                 break;
