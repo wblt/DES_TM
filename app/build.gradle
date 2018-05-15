@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
     defaultConfig {
-        applicationId "wb.com.des"
+        applicationId "wb.com.dec"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 20

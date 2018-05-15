@@ -58,22 +58,6 @@ public class NewsActivity extends BaseActivity {
         newsAdapter = new NewsAdapter();
         recyc_list.setLayoutManager(new LinearLayoutManager(this));
         recyc_list.setAdapter(newsAdapter);
-        newsAdapter.setOnItemClickListener(new OnItemClickListener<NoticeBean>() {
-            @Override
-            public void onClick(NoticeBean noticeBean, View view, int position) {
-                switch (view.getId()) {
-                    case R.id.tv_detail:
-                        Intent intent = new Intent(NewsActivity.this,NewsDetailActivity.class);
-                        intent.putExtra("title",noticeBean.getTITLE());
-                        intent.putExtra("content",noticeBean.getCONTENT());
-                        intent.putExtra("time",noticeBean.getCREATE_TIME());
-                        startActivity(intent);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
         sm_refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {

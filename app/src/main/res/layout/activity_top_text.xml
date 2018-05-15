@@ -12,9 +12,8 @@
         android:layout_centerVertical="true"
         android:gravity="center"
 		android:background="@null"
-        android:src="@mipmap/return_white">
+        android:src="@mipmap/return_arrow">
     </ImageButton>
-	
       <TextView 
            android:id="@+id/top_center_text"
            android:layout_width="wrap_content"

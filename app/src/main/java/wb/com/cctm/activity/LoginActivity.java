@@ -42,12 +42,6 @@ public class LoginActivity extends BaseActivity {
     EditText et_password;
     @BindView(R.id.btn_login)
     Button btn_login;
-    @BindView(R.id.ll_remember_password)
-    LinearLayout ll_remember_password;
-    @BindView(R.id.ll_auto_login)
-    LinearLayout ll_auto_login;
-    @BindView(R.id.tv_register)
-    TextView tv_register;
     @BindView(R.id.tv_forgot_password)
     TextView tv_forgot_password;
     @BindView(R.id.iv_showCode)
@@ -61,13 +55,12 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         appendMainBody(this,R.layout.activity_login);
         appendTopBody(R.layout.activity_top_text);
-        setTopBarTitle("登录");
+        setTopLeftDefultListener();
         ButterKnife.bind(this);
         initview();
     }
 
     private void initview() {
-        top_left.setVisibility(View.INVISIBLE);
         //将验证码用图片的形式显示出来
         iv_showCode.setImageBitmap(Code.getInstance().createBitmap("#111F3F"));
         realCode = Code.getInstance().getCode().toLowerCase();
@@ -75,16 +68,12 @@ public class LoginActivity extends BaseActivity {
         et_password.setText(SPUtils.getString(SPUtils.password));
     }
 
-    @OnClick({R.id.btn_login,R.id.tv_register,R.id.tv_forgot_password,R.id.iv_showCode})
+    @OnClick({R.id.btn_login,R.id.tv_forgot_password,R.id.iv_showCode})
     void viewOnclick(View view) {
         Intent intent;
         switch (view.getId()) {
             case R.id.btn_login:
                 login();
-                break;
-            case R.id.tv_register:
-                intent = new Intent(LoginActivity.this,RegisterActivity.class);
-                startActivity(intent);
                 break;
             case R.id.tv_forgot_password:
                 intent = new Intent(LoginActivity.this,ForgotPasswordActivity.class);

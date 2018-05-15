@@ -203,10 +203,10 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void run() {
                 if (TextUtils.isEmpty(SPUtils.getString(SPUtils.isLogin))) {
-                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(SplashActivity.this, InfoActivity.class);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SplashActivity.this, InfoActivity.class);
                     startActivity(intent);
                 }
                 finish();

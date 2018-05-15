@@ -1,5 +1,6 @@
 package wb.com.cctm.activity;
 
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,15 +33,10 @@ import wb.com.cctm.net.MXUtils;
 public class ForgotPasswordActivity extends BaseActivity {
     @BindView(R.id.et_username)
     EditText et_username;
-    @BindView(R.id.et_password)
-    EditText et_password;
     @BindView(R.id.et_code)
     EditText et_code;
     @BindView(R.id.btn_code)
     Button btn_code;
-    @BindView(R.id.et_re_password)
-    EditText et_re_password;
-    private String codeNum;     // 验证码
     private MyCount myCount;
     @BindView(R.id.et_phone)
     EditText et_phone;
@@ -50,7 +46,6 @@ public class ForgotPasswordActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         appendMainBody(this,R.layout.activity_forgot_password);
         appendTopBody(R.layout.activity_top_text);
-        setTopBarTitle("忘记密码");
         setTopLeftDefultListener();
         ButterKnife.bind(this);
         initview();
@@ -60,14 +55,14 @@ public class ForgotPasswordActivity extends BaseActivity {
         myCount = new MyCount(60000, 1000);
     }
 
-    @OnClick({R.id.btn_code,R.id.btn_commit})
+    @OnClick({R.id.btn_code,R.id.btn_next})
     void viewClick(View view) {
         switch (view.getId()) {
             case R.id.btn_code:
                 getcode();
                 break;
-            case R.id.btn_commit:
-                commit();
+            case R.id.btn_next:
+                next();
                 break;
             default:
                 break;
@@ -116,63 +111,8 @@ public class ForgotPasswordActivity extends BaseActivity {
             e.printStackTrace();
         }
 
-
     }
 
-    private void commit() {
-        final String phone = et_phone.getText().toString();
-        final String username = et_username.getText().toString();
-        String code = et_code.getText().toString();
-        final String password = et_password.getText().toString();
-        String re_password = et_re_password.getText().toString();
-        if (TextUtils.isEmpty(username)) {
-            ToastUtils.toastutils("用户名输入为空",ForgotPasswordActivity.this);
-            return;
-        }
-        if (TextUtils.isEmpty(phone)) {
-            ToastUtils.toastutils("电话号码输入为空",ForgotPasswordActivity.this);
-            return;
-        }
-        if (!RegExpValidator.IsHandset(phone)) {
-            ToastUtils.toastutils("电话号码格式错误",ForgotPasswordActivity.this);
-            return;
-        }
-        if (TextUtils.isEmpty(password)) {
-            ToastUtils.toastutils("密码输入为空",ForgotPasswordActivity.this);
-            return;
-        }
-        if (!StringUtil.checkpwd(password)) {
-            ToastUtils.toastutils("请输入6-15位字母、数字的密码",ForgotPasswordActivity.this);
-            return;
-        }
-        if (!re_password.equals(password)) {
-            ToastUtils.toastutils("两次密码输入不一致",ForgotPasswordActivity.this);
-            return;
-        }
-        RequestParams requestParams= FlowAPI.getRequestParams(FlowAPI.forgotpwd);
-        requestParams.addParameter("USER_NAME", username);
-        requestParams.addParameter("SJYZM", code);
-        requestParams.addParameter("PASSWORD", password);
-        MXUtils.httpPost(requestParams,new CommonCallbackImp("USER - 忘记密码",requestParams,this){
-            @Override
-            public void onSuccess(String data) {
-                super.onSuccess(data);
-                JSONObject jsonObject = JSONObject.parseObject(data);
-                String result = jsonObject.getString("code");
-                String message = jsonObject.getString("message");
-                if (result.equals(FlowAPI.SUCCEED)) {
-                    SPUtils.putString(SPUtils.phone,phone);
-                    SPUtils.putString(SPUtils.username,username);
-                    SPUtils.putString(SPUtils.password,password);
-                    ToastUtils.toastutils("修改成功",ForgotPasswordActivity.this);
-                    finish();
-                } else {
-                    ToastUtils.toastutils(message,ForgotPasswordActivity.this);
-                }
-            }
-        });
-
-    }
 
     public class MyCount extends CountDownTimer {
         public MyCount(long millisInFuture, long countDownInterval){
@@ -190,6 +130,33 @@ public class ForgotPasswordActivity extends BaseActivity {
             btn_code.setEnabled(true);
             btn_code.setText("获取验证码");
         }
+    }
+
+    private void next() {
+        String phone = et_phone.getText().toString();
+        String username = et_username.getText().toString();
+        String code = et_code.getText().toString();
+        if(TextUtils.isEmpty(username)) {
+            ToastUtils.toastutils("用户名输入为空",ForgotPasswordActivity.this);
+            return;
+        }
+        if (TextUtils.isEmpty(phone)) {
+            ToastUtils.toastutils("电话号码输入为空",ForgotPasswordActivity.this);
+            return;
+        }
+        if (!RegExpValidator.IsHandset(phone)) {
+            ToastUtils.toastutils("电话号码格式错误",ForgotPasswordActivity.this);
+            return;
+        }
+        if (TextUtils.isEmpty(code)) {
+            ToastUtils.toastutils("验证码输入为空",ForgotPasswordActivity.this);
+            return;
+        }
+        Intent intent = new Intent(ForgotPasswordActivity.this,ForgotPassword2Activity.class);
+        intent.putExtra("phone",phone);
+        intent.putExtra("username",username);
+        intent.putExtra("code",code);
+        startActivity(intent);
     }
 
 }

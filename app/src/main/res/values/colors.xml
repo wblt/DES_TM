@@ -43,5 +43,10 @@
     <color name="color_two">#FCD2A1</color>
     <color name="color_three">#EF8273</color>
     <color name="color_green">#31AA28</color>
+    <color name="line_singer">#343235</color>
+    <color name="button_bg_gray">#848484</color>
+    <color name="button_bb_gray">#1E1E1E</color>
+
+
 
 </resources>

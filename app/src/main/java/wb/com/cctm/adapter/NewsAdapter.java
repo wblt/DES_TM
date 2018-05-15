@@ -37,7 +37,7 @@ public class NewsAdapter extends BaseRecyclerViewAdapter<NoticeBean> {
             binding.tvTitle.setText(object.getTITLE());
             binding.tvContent.setText(object.getCONTENT());
             binding.tvTime.setText(object.getCREATE_TIME());
-            binding.tvDetail.setOnClickListener(new View.OnClickListener() {
+            binding.llItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (listener != null) {
@@ -45,7 +45,6 @@ public class NewsAdapter extends BaseRecyclerViewAdapter<NoticeBean> {
                     }
                 }
             });
-
         }
     }
 

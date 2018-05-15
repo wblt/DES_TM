@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="wb.com.cctm">
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -42,17 +43,19 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <activity
             android:name=".activity.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity android:name=".activity.GuideActivity"-->
-            <!--android:theme="@style/AppGuide"></activity>-->
+        <!-- <activity android:name=".activity.GuideActivity" -->
+        <!-- android:theme="@style/AppGuide"></activity> -->
         <activity
             android:name=".activity.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -226,7 +229,12 @@
         <activity android:name=".activity.PayInfoActivity" />
         <activity android:name=".activity.MarkBuyActivity" />
         <activity android:name=".activity.OrderDetailActivity" />
-        <activity android:name=".activity.ShengHeActivity"></activity>
+        <activity android:name=".activity.ShengHeActivity" />
+        <activity
+            android:name=".activity.InfoActivity"
+            android:theme="@style/info_app" />
+        <activity android:name=".activity.Register2Activity" />
+        <activity android:name=".activity.ForgotPassword2Activity"></activity>
     </application>
 
 </manifest>

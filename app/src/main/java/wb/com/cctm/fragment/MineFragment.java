@@ -124,30 +124,31 @@ public class MineFragment extends BaseFragment {
     }
 
     private void initview(View view) {
-        top_left.setImageResource(R.mipmap.scan);
-        top_left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (ContextCompat.checkSelfPermission(getActivity(),
-                        Manifest.permission.CAMERA)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    //权限还没有授予，需要在这里写申请权限的代码
-                    requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_CODE_SCAN);
-                } else {
-                    Intent intent = new Intent(getActivity(), CaptureActivity.class);
-                                /*ZxingConfig是配置类  可以设置是否显示底部布局，闪光灯，相册，是否播放提示音  震动等动能
-                                * 也可以不传这个参数
-                                * 不传的话  默认都为默认不震动  其他都为true
-                                * */
-                    ZxingConfig config = new ZxingConfig();
-                    config.setPlayBeep(true);
-                    config.setShake(true);
-                    config.setShowbottomLayout(false);
-                    intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
-                    startActivityForResult(intent, REQUEST_CODE_SCAN);
-                }
-            }
-        });
+//        top_left.setImageResource(R.mipmap.scan);
+//        top_left.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (ContextCompat.checkSelfPermission(getActivity(),
+//                        Manifest.permission.CAMERA)
+//                        != PackageManager.PERMISSION_GRANTED) {
+//                    //权限还没有授予，需要在这里写申请权限的代码
+//                    requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_CODE_SCAN);
+//                } else {
+//                    Intent intent = new Intent(getActivity(), CaptureActivity.class);
+//                                /*ZxingConfig是配置类  可以设置是否显示底部布局，闪光灯，相册，是否播放提示音  震动等动能
+//                                * 也可以不传这个参数
+//                                * 不传的话  默认都为默认不震动  其他都为true
+//                                * */
+//                    ZxingConfig config = new ZxingConfig();
+//                    config.setPlayBeep(true);
+//                    config.setShake(true);
+//                    config.setShowbottomLayout(false);
+//                    intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
+//                    startActivityForResult(intent, REQUEST_CODE_SCAN);
+//                }
+//            }
+//        });
+        top_left.setVisibility(View.INVISIBLE);
         top_right_icon.setImageResource(R.mipmap.setting_icon);
         top_right_icon.setOnClickListener(new View.OnClickListener() {
             @Override
