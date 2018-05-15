@@ -228,7 +228,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="10dp"
-            android:textColor="@color/white"
+            android:textColor="@color/red"
             android:text="说明：银行卡，支付宝，微信信息三者填一即可"/>
     </LinearLayout>
 
