@@ -19,6 +19,8 @@
         <item name="actionMenuTextColor">@color/mainPrimary</item>
         <item name="android:windowAnimationStyle">@style/pageInOut</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <!--应用程序启动页面，消除app启动的白屏页面-->

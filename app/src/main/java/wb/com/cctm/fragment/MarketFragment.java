@@ -105,21 +105,13 @@ public class MarketFragment extends BaseFragment {
         View view = super.onCreateView(inflater,container,savedInstanceState);
         appendMainBody(this,R.layout.fragment_market);
         appendTopBody(R.layout.activity_top_text);
-        setTopBarTitle("卖单市场");
+        setTopBarTitle("交易");
         unbinder = ButterKnife.bind(this,view);
         initview(view);
         return view;
     }
 
     private void initview(View view) {
-        top_right_text.setText("挂单");
-        top_right_text.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),GuadanActivity.class);
-                startActivity(intent);
-            }
-        });
         top_left.setVisibility(View.INVISIBLE);
         initLineChart();
         depth("0","日线走势图");
@@ -141,7 +133,6 @@ public class MarketFragment extends BaseFragment {
         });
         recyc_list.setLayoutManager(new LinearLayoutManager(getContext()));
         recyc_list.setAdapter(adpter);
-
         sm_refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
@@ -240,7 +231,6 @@ public class MarketFragment extends BaseFragment {
         lineChart.setScaleEnabled(false);
         lineChart.setDragXEnabled(false);
         lineChart.setDragYEnabled(false);
-
 
         // 标签
         Legend legend = lineChart.getLegend();

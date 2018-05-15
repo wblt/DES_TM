@@ -50,7 +50,7 @@ public class SettingActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.btn_logout:
                 SPUtils.clearUser();
-                intent = new Intent(SettingActivity.this,LoginActivity.class);
+                intent = new Intent(SettingActivity.this,InfoActivity.class);
                 startActivity(intent);
                 finish();
                 App.getInstance().closeActivitys();
