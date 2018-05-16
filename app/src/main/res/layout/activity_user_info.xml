@@ -61,8 +61,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/buttom_bg_gray">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -136,23 +136,18 @@
                         android:src="@mipmap/arrow"/>
                 </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:id="@+id/btn_complete"
+
+            <Button
+                android:id="@+id/btn_commit"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <Button
-                    android:id="@+id/btn_login"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:text="完成"
-                    android:textSize="12dp"
-                    android:textColor="@color/white"
-                    android:background="@drawable/buttom_bg_gray"/>
-            </LinearLayout>
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="完成"
+                android:textSize="12dp"
+                android:textColor="@color/white"
+                android:background="@drawable/buttom_bg_gray"/>
         </LinearLayout>
     </LinearLayout>
     <ch.ielse.view.imagewatcher.ImageWatcher

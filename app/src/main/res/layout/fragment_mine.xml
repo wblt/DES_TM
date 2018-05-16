@@ -118,6 +118,7 @@
                 android:layout_height="1dp"
                 android:background="@color/line_singer"></LinearLayout>
             <LinearLayout
+                android:id="@+id/ll_enger"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal"

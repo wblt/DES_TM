@@ -44,8 +44,6 @@ public class WalletConversionActivity extends BaseActivity {
     TextView tv_w_bl;
     @BindView(R.id.et_number)
     EditText et_number;
-    @BindView(R.id.iv_input_xx)
-    ImageView iv_input_xx;
     private MyInputPwdUtil myInputPwdUtil;
     private String type = "0";
 
@@ -82,7 +80,7 @@ public class WalletConversionActivity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.btn_commit,R.id.iv_input_xx})
+    @OnClick({R.id.btn_commit})
     void viewClick(View view) {
         switch (view.getId()) {
             case R.id.btn_commit:
@@ -96,9 +94,6 @@ public class WalletConversionActivity extends BaseActivity {
                 } else {
                     myInputPwdUtil.show();
                 }
-                break;
-            case R.id.iv_input_xx:
-                et_number.getText().clear();
                 break;
             default:
                 break;

@@ -106,7 +106,7 @@ public class MineFragment extends BaseFragment {
         top_left.setVisibility(View.INVISIBLE);
     }
 
-    @OnClick({R.id.ll_user_info,R.id.ll_address,R.id.ll_setting})
+    @OnClick({R.id.ll_user_info,R.id.ll_address,R.id.ll_setting,R.id.ll_enger})
     void viewClick(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -120,6 +120,10 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.ll_setting:
                 intent = new Intent(getActivity(),SettingActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ll_enger:
+                intent = new Intent(getActivity(),WalletConversionActivity.class);
                 startActivity(intent);
                 break;
         }

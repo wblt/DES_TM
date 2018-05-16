@@ -8,103 +8,144 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="10dp"
         android:orientation="vertical">
         <LinearLayout
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
-            <TextView
-                android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/buttom_bg_gray"
+            android:padding="10dp">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="当前能量"
-                android:textSize="12dp"
-                android:textColor="@color/white"/>
-            <TextView
-                android:id="@+id/tv_w_energy"
-                android:layout_width="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_w_energy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.00"
+                        android:textSize="12dp"
+                        android:textColor="@color/red"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="能量"
+                        android:textSize="12dp"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_t_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.00"
+                        android:textSize="12dp"
+                        android:textColor="@color/red"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="算力"
+                        android:textSize="12dp"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_d_curr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.00"
+                        android:textSize="12dp"
+                        android:textColor="@color/red"/>
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DEC"
+                        android:textSize="12dp"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_singer"></LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0.00"
-                android:textSize="12dp"
-                android:textColor="@color/white"/>
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="兑换数量"
+                    android:textSize="12dp"
+                    android:textColor="@color/white"/>
+                <EditText
+                    android:id="@+id/et_number"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:textColor="@color/white"
+                    android:hint="请输入兑换数量(整数且1的倍数)"
+                    android:textColorHint="@color/grey"
+                    android:background="@null"
+                    android:digits="1234567890"
+                    android:inputType="number"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
         </LinearLayout>
 
-        <LinearLayout
+        <Button
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/btn_commit"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/main_botton_text_color"></LinearLayout>
+            android:layout_height="wrap_content"
+            android:text="提交"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:background="@drawable/buttom_bg_gray"/>
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:gravity="center">
             <TextView
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="当前可用"
-                android:textSize="12dp"
-                android:textColor="@color/white"/>
-            <TextView
-                android:id="@+id/tv_t_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0.00"
-                android:textSize="12dp"
-                android:textColor="@color/white"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/main_botton_text_color"></LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="当前SHC"
-                android:textSize="12dp"
-                android:textColor="@color/white"/>
-            <TextView
-                android:id="@+id/tv_d_curr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0.00"
-                android:textSize="12dp"
-                android:textColor="@color/white"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/main_botton_text_color"></LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="当前比率"
+                android:text="比率:"
                 android:textSize="12dp"
                 android:textColor="@color/white"/>
             <TextView
@@ -115,62 +156,6 @@
                 android:textSize="12dp"
                 android:textColor="@color/white"/>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/main_botton_text_color"></LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="兑换数量"
-                android:textSize="12dp"
-                android:textColor="@color/white"/>
-            <EditText
-                android:id="@+id/et_number"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12dp"
-                android:textColor="@color/white"
-                android:hint="请输入兑换数量(整数且1的倍数)"
-                android:textColorHint="@color/grey"
-                android:background="@null"
-                android:digits="1234567890"
-                android:inputType="number"
-                android:singleLine="true"/>
-            <ImageView
-                android:id="@+id/iv_input_xx"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:padding="8dp"
-                android:src="@mipmap/xxxx"
-                android:visibility="visible"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/main_botton_text_color"></LinearLayout>
-        <Button
-            android:id="@+id/btn_commit"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="提交"
-            android:textSize="12dp"
-            android:textColor="@color/white"
-            android:background="@drawable/button_rect_golden"/>
 
     </LinearLayout>
 
