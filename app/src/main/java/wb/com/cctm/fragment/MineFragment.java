@@ -35,6 +35,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import wb.com.cctm.R;
+import wb.com.cctm.activity.AllReleaseActivity;
 import wb.com.cctm.activity.CompoundActivity;
 import wb.com.cctm.activity.FinancialTransferActivity;
 import wb.com.cctm.activity.InvitingFriendsActivity;
@@ -46,6 +47,7 @@ import wb.com.cctm.activity.StepRecoderActivity;
 import wb.com.cctm.activity.TransferRecoderActivity;
 import wb.com.cctm.activity.UserInfoActivity;
 import wb.com.cctm.activity.WalletConversionActivity;
+import wb.com.cctm.activity.WalletRecordActivity;
 import wb.com.cctm.base.BaseActivity;
 import wb.com.cctm.base.BaseFragment;
 import wb.com.cctm.commons.utils.ImageLoader;
@@ -106,7 +108,7 @@ public class MineFragment extends BaseFragment {
         top_left.setVisibility(View.INVISIBLE);
     }
 
-    @OnClick({R.id.ll_user_info,R.id.ll_address,R.id.ll_setting,R.id.ll_enger})
+    @OnClick({R.id.ll_suan_li,R.id.ll_user_info,R.id.ll_address,R.id.ll_setting,R.id.ll_enger})
     void viewClick(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -124,6 +126,10 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.ll_enger:
                 intent = new Intent(getActivity(),WalletConversionActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ll_suan_li:
+                intent = new Intent(getActivity(),AllReleaseActivity.class);
                 startActivity(intent);
                 break;
         }

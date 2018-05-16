@@ -36,7 +36,6 @@ public class AllReleaseAdapter extends BaseRecyclerViewAdapter<AllReleaseBean> {
             binding.tvBig.setText(object.getBIG_CURRENCY());
             binding.tvSmall.setText(object.getSMALL_CURRENCY());
             binding.tvJd.setText(object.getJD_CURRENCY());
-            binding.tvStep.setText(object.getSTEP_CURRENCY());
             binding.tvTime.setText(object.getCREATE_TIME());
             binding.tvToday.setText(object.getCALCULATE_MONEY());
             binding.tvSmart.setText(object.getSTATIC_CURRENCY());
