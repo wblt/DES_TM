@@ -68,7 +68,7 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="算力钱包"
+                    android:text="算力"
                     android:textSize="12dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"/>
@@ -97,7 +97,7 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="零钱包"
+                    android:text="零钱"
                     android:textSize="12dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"/>
@@ -126,7 +126,7 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="能量钱包"
+                    android:text="能量"
                     android:textSize="12dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"/>
@@ -155,7 +155,7 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="区块DEC钱包"
+                    android:text="DEC"
                     android:textSize="12dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"/>

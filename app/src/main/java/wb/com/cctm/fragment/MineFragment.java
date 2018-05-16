@@ -149,7 +149,7 @@ public class MineFragment extends BaseFragment {
                     SPUtils.putString(SPUtils.safety,pd_obj.getString("IFPAS"));
                     SPUtils.putString(SPUtils.w_energy,pd_obj.getString("W_ENERGY"));
                     // 设置数据
-                    ImageLoader.load(SPUtils.getString(SPUtils.headimgpath),iv_head_img);
+                    ImageLoader.loadCircle(SPUtils.getString(SPUtils.headimgpath),iv_head_img);
                     tv_username.setText(SPUtils.getString(SPUtils.nick_name));
                     tv_D_CURRENCY.setText(pd_obj.getString("D_CURRENCY"));
                     tv_QK_CURRENCY.setText(pd_obj.getString("QK_CURRENCY"));

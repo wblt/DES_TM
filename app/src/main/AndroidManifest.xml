@@ -235,7 +235,8 @@
             android:theme="@style/info_app" />
         <activity android:name=".activity.Register2Activity" />
         <activity android:name=".activity.ForgotPassword2Activity" />
-        <activity android:name=".activity.SafetyPwd2Activity"></activity>
+        <activity android:name=".activity.SafetyPwd2Activity" />
+        <activity android:name=".activity.InvitingInfoActivity"></activity>
     </application>
 
 </manifest>

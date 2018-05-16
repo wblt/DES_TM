@@ -37,9 +37,9 @@
                 android:visibility="visible"
                 android:orientation="vertical">
                 <ImageView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:src="@mipmap/loaderror" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/loaderror" />
                 <TextView
                     android:layout_gravity="center"
                     android:id="@+id/page_tip"

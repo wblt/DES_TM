@@ -20,7 +20,7 @@
     <color name="market_increase_text_bg">#e53935</color>
     <color name="market_drop_text_bg">#52d869</color>
     <color name="asset_item_color">#329fc9</color>
-    <color name="circular_bead_blue">#30a1da</color>
+    <color name="circular_bead_blue">#319FF4</color>
     <color name="hint_text_color">#cccccc</color>
     <!--zxing-->
     <color name="contents_text">#000000</color>

@@ -43,7 +43,7 @@ public class FrendsAdapter extends BaseRecyclerViewAdapter<FrendsBean> {
             // 接下来真正开始您的业务逻辑
             binding.tvUsername.setText(object.getNICK_NAME());
             ImageLoader.load(object.getHEAD_URL(),binding.ivImg);
-            binding.tvTel.setText("tel:"+object.getTEL());
+            binding.tvTel.setText(object.getTEL());
         }
     }
 }
