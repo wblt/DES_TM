@@ -6,121 +6,125 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/black">
         <LinearLayout
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp">
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/buttom_bg_gray">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="指导价"
+                        android:textSize="12dp"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:id="@+id/tv_zhidao_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1.232"
+                        android:textSize="12dp"
+                        android:textColor="@color/red"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_singer"></LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
                 <TextView
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="指导价"
+                    android:text="卖单价格"
                     android:textSize="12dp"
                     android:textColor="@color/white"/>
+                <EditText
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/et_sell_price"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:textColorHint="@color/hint_text_color"
+                    android:hint="请输入卖单价格"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:digits=".1234567890"
+                    android:singleLine="true"/>
+                <ImageView
+                    android:id="@+id/ig_xxxx"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:padding="8dp"
+                    android:src="@mipmap/xxxx"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_singer"></LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
                 <TextView
-                    android:id="@+id/tv_zhidao_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1.232"
+                    android:text="卖单数量"
                     android:textSize="12dp"
-                    android:textColor="@color/main_bottom_text_color_selector"/>
+                    android:textColor="@color/white"/>
+                <EditText
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/et_sell_number"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:background="@null"
+                    android:hint="请输入挂卖数量(整数且1的倍数)"
+                    android:textColorHint="@color/hint_text_color"
+                    android:digits="1234567890"
+                    android:inputType="number"
+                    android:singleLine="true"/>
+                <ImageView
+                    android:id="@+id/ig_xxxx2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:padding="8dp"
+                    android:src="@mipmap/xxxx"
+                    android:visibility="visible"/>
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/main_botton_text_color"></LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="卖单价格"
-                android:textSize="12dp"
-                android:textColor="@color/white"/>
-            <EditText
-                android:id="@+id/et_sell_price"
-                android:gravity="end"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="12dp"
-                android:textColorHint="@color/main_botton_text_color"
-                android:hint="请输入卖单价格"
-                android:background="@null"
-                android:inputType="number"
-                android:digits=".1234567890"
-                android:singleLine="true"/>
-            <ImageView
-                android:id="@+id/ig_xxxx"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:padding="8dp"
-                android:src="@mipmap/xxxx"
-                android:visibility="visible"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/main_botton_text_color"></LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="卖单数量"
-                android:textSize="12dp"
-                android:textColor="@color/white"/>
-            <EditText
-                android:id="@+id/et_sell_number"
-                android:gravity="end"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="12dp"
-                android:background="@null"
-                android:hint="请输入挂卖数量(整数且1的倍数)"
-                android:textColorHint="@color/main_botton_text_color"
-                android:digits="1234567890"
-                android:inputType="number"
-                android:singleLine="true"/>
-            <ImageView
-                android:id="@+id/ig_xxxx2"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:padding="8dp"
-                android:src="@mipmap/xxxx"
-                android:visibility="visible"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/main_botton_text_color"></LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,6 +150,8 @@
         </LinearLayout>
 
         <Button
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:id="@+id/btn_commit"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -153,7 +159,7 @@
             android:text="提交"
             android:textSize="12dp"
             android:textColor="@color/white"
-            android:background="@drawable/button_rect_golden"/>
+            android:background="@drawable/buttom_bg_gray"/>
 
         <LinearLayout
             android:layout_marginTop="20dp"

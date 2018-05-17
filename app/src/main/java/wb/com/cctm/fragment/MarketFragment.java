@@ -138,7 +138,8 @@ public class MarketFragment extends BaseFragment {
 
                 break;
             case R.id.ll_gua_dan:
-
+                intent = new Intent(getActivity(), GuadanActivity.class);
+                startActivity(intent);
                 break;
             case R.id.ll_market:
                 intent = new Intent(getActivity(), MarketActivity.class);

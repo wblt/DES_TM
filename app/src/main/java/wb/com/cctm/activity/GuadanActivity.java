@@ -50,7 +50,7 @@ public class GuadanActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         appendMainBody(this,R.layout.activity_guadan);
         appendTopBody(R.layout.activity_top_text);
-        setTopBarTitle("卖单");
+        setTopBarTitle("我要挂单");
         setTopLeftDefultListener();
         ButterKnife.bind(this);
         initview();

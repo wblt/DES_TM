@@ -72,16 +72,15 @@ public class SplashActivity extends BaseActivity {
                 String message = jsonObject.getString("message");
                 if (result.equals(FlowAPI.SUCCEED)) {
                     String pd = jsonObject.getString("pd");
-//                    if (pd != null) {
-//                        versionBean = JSONObject.parseObject(pd,VersionBean.class);
-//                        int code = Integer.valueOf(versionBean.getV_VERSION_CODE());
-//                        if (code>VersionUtil.getAppVersionCode(SplashActivity.this)) {
-//                            showUpdateDialog(versionBean.getV_NUMBER(),versionBean.getV_ADDR());
-//                        } else {
-//                            goActivity();
-//                        }
-//                    }
-                    goActivity();
+                    if (pd != null) {
+                        versionBean = JSONObject.parseObject(pd,VersionBean.class);
+                        int code = Integer.valueOf(versionBean.getV_VERSION_CODE());
+                        if (code>VersionUtil.getAppVersionCode(SplashActivity.this)) {
+                            showUpdateDialog(versionBean.getV_NUMBER(),versionBean.getV_ADDR());
+                        } else {
+                            goActivity();
+                        }
+                    }
                 } else {
                     ToastUtils.toastutils(message,SplashActivity.this);
                 }
