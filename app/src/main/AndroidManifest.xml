@@ -237,7 +237,8 @@
         <activity android:name=".activity.ForgotPassword2Activity" />
         <activity android:name=".activity.SafetyPwd2Activity" />
         <activity android:name=".activity.InvitingInfoActivity" />
-        <activity android:name=".activity.ChargeActivity"></activity>
+        <activity android:name=".activity.ChargeActivity" />
+        <activity android:name=".activity.MarketActivity"></activity>
     </application>
 
 </manifest>
