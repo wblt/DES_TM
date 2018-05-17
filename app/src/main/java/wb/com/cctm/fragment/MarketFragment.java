@@ -58,6 +58,7 @@ import butterknife.Unbinder;
 import wb.com.cctm.R;
 import wb.com.cctm.activity.GuadanActivity;
 import wb.com.cctm.activity.MarkBuyActivity;
+import wb.com.cctm.activity.MarketActivity;
 import wb.com.cctm.adapter.BBPageAdapter;
 import wb.com.cctm.adapter.CheckAdpter;
 import wb.com.cctm.base.BaseActivity;
@@ -86,14 +87,6 @@ public class MarketFragment extends BaseFragment {
     @BindView(R.id.tv_week)
     TextView tv_week;
     private List<DepthBean> depthBeanList;
-    @BindView(R.id.recyc_list)
-    RecyclerView recyc_list;
-    private String queryId = "0";
-    private CheckAdpter adpter;
-    @BindView(R.id.ll_no_data)
-    LinearLayout ll_no_data;
-    @BindView(R.id.sm_refreshLayout)
-    SmartRefreshLayout sm_refreshLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -116,53 +109,17 @@ public class MarketFragment extends BaseFragment {
         top_left.setVisibility(View.INVISIBLE);
         initLineChart();
         depth("0","日线走势图");
-        adpter = new CheckAdpter();
-        adpter.setOnItemClickListener(new OnItemClickListener<MarkBean>() {
-            @Override
-            public void onClick(MarkBean s, View view, int position) {
-                switch (view.getId()) {
-                    case R.id.ll_pipei:
-                        Intent intent = new Intent(getActivity(), MarkBuyActivity.class);
-                        intent.putExtra("TRADE_ID",s.getTRADE_ID());
-                        // 价格
-                        intent.putExtra("price",s.getBUSINESS_PRICE());
-                        intent.putExtra("number",s.getBUSINESS_COUNT());
-                        startActivity(intent);
-                        break;
-                }
-            }
-        });
-        recyc_list.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyc_list.setAdapter(adpter);
-        sm_refreshLayout.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                refreshLayout.finishRefresh(1000);
-                adpter.clear();
-                queryId = "0";
-                //marketList("1");
-            }
-        });
-        sm_refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
-            @Override
-            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                refreshLayout.finishLoadMore(1000);
-                //marketList("2");
-            }
-        });
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        adpter.clear();
-        queryId = "0";
-        //marketList("1");
     }
 
-    @OnClick({R.id.tv_day,R.id.tv_week})
+    @OnClick({R.id.tv_day,R.id.tv_week,R.id.ll_market,R.id.ll_my_buy,R.id.ll_my_sell,R.id.ll_gua_dan})
     void viewClick(View view) {
         List<Entry> entries;
+        Intent intent;
         switch (view.getId()) {
             case R.id.tv_day:
                 depth("0","日线走势图");
@@ -173,6 +130,19 @@ public class MarketFragment extends BaseFragment {
                 depth("1","周线走势图");
                 tv_day.setTextColor(getActivity().getResources().getColor(R.color.white));
                 tv_week.setTextColor(getActivity().getResources().getColor(R.color.yellow));
+                break;
+            case R.id.ll_my_buy:
+
+                break;
+            case R.id.ll_my_sell:
+
+                break;
+            case R.id.ll_gua_dan:
+
+                break;
+            case R.id.ll_market:
+                intent = new Intent(getActivity(), MarketActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;
@@ -323,38 +293,6 @@ public class MarketFragment extends BaseFragment {
     }
 
 
-    private void marketList(String type) {
-        RequestParams requestParams= FlowAPI.getRequestParams(FlowAPI.marketList);
-        requestParams.addParameter("QUERY_ID", queryId);
-        requestParams.addParameter("TYPE", type);
-        MXUtils.httpPost(requestParams,new CommonCallbackImp("MARKET - 市场列表",requestParams, (BaseActivity) getActivity()){
-            @Override
-            public void onSuccess(String data) {
-                super.onSuccess(data);
-                JSONObject jsonObject = JSONObject.parseObject(data);
-                String result = jsonObject.getString("code");
-                String message = jsonObject.getString("message");
-                if (result.equals(FlowAPI.SUCCEED)) {
-                    String pd = jsonObject.getString("pd");
-                    List<MarkBean> beanList = JSONArray.parseArray(pd,MarkBean.class);
-                    if (beanList.size()>0) {
-                        queryId = beanList.get(beanList.size()-1).getTRADE_ID();
-                    }
-                    adpter.addAll(beanList);
-                    adpter.notifyDataSetChanged();
-                    if (adpter.getData().size()>0) {
-                        recyc_list.setVisibility(View.VISIBLE);
-                        ll_no_data.setVisibility(View.GONE);
-                    } else {
-                        recyc_list.setVisibility(View.GONE);
-                        ll_no_data.setVisibility(View.VISIBLE);
-                    }
-                } else {
-                    ToastUtils.toastutils(message,getContext());
-                }
 
-            }
-        });
-    }
 
 }

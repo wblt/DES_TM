@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="wb.com.cctm.activity.MarketActivity">
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/sm_refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <com.scwang.smartrefresh.layout.header.ClassicsHeader
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+            <android.support.v7.widget.RecyclerView
+                android:visibility="visible"
+                android:id="@+id/recyc_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </android.support.v7.widget.RecyclerView>
+            <!--加载失败-->
+            <LinearLayout
+                android:visibility="visible"
+                android:id="@+id/ll_no_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/loaderror" />
+                <TextView
+                    android:layout_gravity="center"
+                    android:id="@+id/page_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="暂无数据,请重新加载"
+                    android:textSize="12sp"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+        </LinearLayout>
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
