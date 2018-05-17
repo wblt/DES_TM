@@ -45,7 +45,6 @@ public class WalletConversionActivity extends BaseActivity {
     @BindView(R.id.et_number)
     EditText et_number;
     private MyInputPwdUtil myInputPwdUtil;
-    private String type = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,9 +117,6 @@ public class WalletConversionActivity extends BaseActivity {
                     tv_d_curr.setText(pd_obj.getString("D_CURRENCY"));
                     tv_w_bl.setText(pd_obj.getString("W_BL"));
                     SPUtils.putString(SPUtils.w_energy,pd_obj.getString("W_ENERGY"));
-                    if (type.equals("1")) {
-                        finish();
-                    }
                 } else {
                     ToastUtils.toastutils(message,WalletConversionActivity.this);
                 }
@@ -145,7 +141,6 @@ public class WalletConversionActivity extends BaseActivity {
                     String pd = jsonObject.getString("pd");
                     JSONObject pd_obj = JSONObject.parseObject(pd);
                     ToastUtils.toastutils("兑换成功",WalletConversionActivity.this);
-                    type = "1";
                     cgEnergyMes();
                 } else {
                     ToastUtils.toastutils(message,WalletConversionActivity.this);

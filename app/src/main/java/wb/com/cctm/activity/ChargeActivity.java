@@ -190,7 +190,7 @@ public class ChargeActivity extends BaseActivity {
                     String pd = jsonObject.getString("pd");
                     JSONObject pd_obj = JSONObject.parseObject(pd);
                     ToastUtils.toastutils("转账成功",ChargeActivity.this);
-                    finish();
+                    sendMes();
                 } else {
                     ToastUtils.toastutils(message,ChargeActivity.this);
                 }

@@ -118,7 +118,6 @@ public class MoveWalletActivity extends BaseActivity {
                     tv_d_curr.setText(pd_obj.getString("D_CURRENCY"));
                     tv_qk_curr.setText(pd_obj.getString("QK_CURRENCY"));
                     tv_acuur.setText(pd_obj.getString("A_CURRENCY"));
-                    finish();
                 } else {
                     ToastUtils.toastutils(message,MoveWalletActivity.this);
                 }
