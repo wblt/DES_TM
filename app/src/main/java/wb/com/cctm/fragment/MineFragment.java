@@ -112,11 +112,11 @@ public class MineFragment extends BaseFragment {
         top_left.setVisibility(View.INVISIBLE);
     }
 
-    @OnClick({R.id.ll_dec,R.id.ll_suan_li,R.id.ll_user_info,R.id.ll_address,R.id.ll_setting,R.id.ll_enger})
+    @OnClick({R.id.ll_dec,R.id.ll_suan_li,R.id.iv_head_img,R.id.ll_address,R.id.ll_setting,R.id.ll_enger})
     void viewClick(View view) {
         Intent intent;
         switch (view.getId()) {
-            case R.id.ll_user_info:
+            case R.id.iv_head_img:
                 intent = new Intent(getActivity(),UserInfoActivity.class);
                 startActivity(intent);
                 break;

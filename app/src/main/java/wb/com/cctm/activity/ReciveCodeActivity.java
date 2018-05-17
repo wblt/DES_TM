@@ -2,6 +2,7 @@ package wb.com.cctm.activity;
 
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
@@ -65,13 +66,22 @@ public class ReciveCodeActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.tv_copy})
+    @OnClick({R.id.tv_copy,R.id.ll_transfer_in,R.id.ll_transfer_out})
     void viewClick(View view) {
+        Intent intent;
         switch (view.getId()) {
             case R.id.tv_copy:
                 ClipboardManager clip_left = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
                 clip_left.setText(tv_address.getText());
                 ToastUtils.toastutils("你已复制到粘贴板",ReciveCodeActivity.this);
+                break;
+            case R.id.ll_transfer_in:
+                intent = new Intent(ReciveCodeActivity.this,ReciverRecordActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ll_transfer_out:
+                intent = new Intent(ReciveCodeActivity.this,TransferRecoderActivity.class);
+                startActivity(intent);
                 break;
         }
     }
