@@ -89,8 +89,6 @@ public class OrderDetailActivity extends BaseActivity {
     Button btn_cancel;
     @BindView(R.id.iv_img)
     ImageView iv_img;
-    @BindView(R.id.ll_add_img)
-    LinearLayout ll_add_img;
     Dialog dialog;
     public static final int REQUEST_CODE_SELECT = 100;
     private List<ImageItem> images;
@@ -271,14 +269,12 @@ public class OrderDetailActivity extends BaseActivity {
 
         if (getIntent().getStringExtra("action").equals("卖单")) {
             iv_img.setVisibility(View.VISIBLE);
-            ll_add_img.setVisibility(View.GONE);
         } else {
             iv_img.setVisibility(View.GONE);
-            ll_add_img.setVisibility(View.VISIBLE);
         }
     }
 
-    @OnClick({R.id.btn_contain,R.id.btn_cancel,R.id.ll_add_img,R.id.iv_img})
+    @OnClick({R.id.btn_contain,R.id.btn_cancel,R.id.iv_img,R.id.ll_dk_pz})
     void viewClick(View view) {
         switch (view.getId()) {
             case R.id.btn_contain:
@@ -304,7 +300,7 @@ public class OrderDetailActivity extends BaseActivity {
                     myInputPwdUtil.show();
                 }
                 break;
-            case R.id.ll_add_img:
+            case R.id.ll_dk_pz:
                 dialog.show();
                 break;
             case R.id.iv_img:
@@ -393,7 +389,6 @@ public class OrderDetailActivity extends BaseActivity {
                             btn_contain.setVisibility(View.VISIBLE);
                             btn_contain.setText("确认收款");
                             ll_dk_pz.setVisibility(View.VISIBLE);
-                            ll_add_img.setVisibility(View.GONE);
                             iv_img.setVisibility(View.VISIBLE);
                             file_img_path = pd_obj.getString("IMAGE_NOTE");
                             ImageLoader.load(pd_obj.getString("IMAGE_NOTE"),iv_img);
@@ -402,7 +397,6 @@ public class OrderDetailActivity extends BaseActivity {
                             btn_cancel.setVisibility(View.GONE);
                             btn_contain.setVisibility(View.GONE);
                             ll_dk_pz.setVisibility(View.VISIBLE);
-                            ll_add_img.setVisibility(View.GONE);
                             iv_img.setVisibility(View.VISIBLE);
                             file_img_path = pd_obj.getString("IMAGE_NOTE");
                             ImageLoader.load(pd_obj.getString("IMAGE_NOTE"),iv_img);
@@ -410,7 +404,6 @@ public class OrderDetailActivity extends BaseActivity {
                     } else if (status.equals("5")) {
                         tv_status.setText("已成交");
                         ll_dk_pz.setVisibility(View.VISIBLE);
-                        ll_add_img.setVisibility(View.GONE);
                         iv_img.setVisibility(View.VISIBLE);
                         file_img_path = pd_obj.getString("IMAGE_NOTE");
                         ImageLoader.load(pd_obj.getString("IMAGE_NOTE"),iv_img);
