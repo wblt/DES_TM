@@ -100,7 +100,7 @@ public class MarkBuyActivity extends BaseActivity {
         }
     };
 
-    @OnClick({R.id.btn_commit,R.id.iv_xxx})
+    @OnClick({R.id.btn_commit})
     void viewClick(View view) {
         switch (view.getId()) {
             case R.id.btn_commit:
@@ -120,9 +120,6 @@ public class MarkBuyActivity extends BaseActivity {
                 } else {
                     myInputPwdUtil.show();
                 }
-                break;
-            case R.id.iv_xxx:
-                et_buy_number.getText().clear();
                 break;
         }
     }

@@ -163,7 +163,7 @@
                             android:layout_height="wrap_content"
                             android:text="2018/04/13 13:27"
                             android:textSize="12dp"
-                            android:textColor="@color/circular_bead_blue"/>
+                            android:textColor="@color/color_green"/>
                         <TextView
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
