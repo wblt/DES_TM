@@ -46,7 +46,7 @@ public class MoveWalletActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         appendMainBody(this,R.layout.activity_move_wallet);
         appendTopBody(R.layout.activity_top_text);
-        setTopBarTitle("DEC");
+        setTopBarTitle("转入DEC");
         setTopLeftDefultListener();
         ButterKnife.bind(this);
         initview();

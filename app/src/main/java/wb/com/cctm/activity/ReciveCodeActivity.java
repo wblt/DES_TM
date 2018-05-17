@@ -66,7 +66,7 @@ public class ReciveCodeActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.tv_copy,R.id.ll_transfer_in,R.id.ll_transfer_out})
+    @OnClick({R.id.ll_transfer,R.id.tv_copy,R.id.ll_transfer_in,R.id.ll_transfer_out})
     void viewClick(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -81,6 +81,10 @@ public class ReciveCodeActivity extends BaseActivity {
                 break;
             case R.id.ll_transfer_out:
                 intent = new Intent(ReciveCodeActivity.this,TransferRecoderActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ll_transfer:
+                intent = new Intent(ReciveCodeActivity.this,FinancialTransferActivity.class);
                 startActivity(intent);
                 break;
         }

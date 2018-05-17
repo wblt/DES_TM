@@ -46,7 +46,7 @@ public class AllReleaseActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         appendMainBody(this,R.layout.activity_all_release);
         appendTopBody(R.layout.activity_top_text);
-        setTopBarTitle("全部记录");
+        setTopBarTitle("释放记录");
         setTopLeftDefultListener();
         ButterKnife.bind(this);
         initView();

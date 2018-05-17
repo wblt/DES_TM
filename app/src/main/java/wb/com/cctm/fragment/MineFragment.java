@@ -36,6 +36,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import wb.com.cctm.R;
 import wb.com.cctm.activity.AllReleaseActivity;
+import wb.com.cctm.activity.ChargeActivity;
 import wb.com.cctm.activity.CompoundActivity;
 import wb.com.cctm.activity.FinancialTransferActivity;
 import wb.com.cctm.activity.InvitingFriendsActivity;
@@ -85,6 +86,8 @@ public class MineFragment extends BaseFragment {
     private String A_CURRENCY = "";
     private String QK_CURRENCY = "";
     private String D_CURRENCY = "";
+    @BindView(R.id.tv_address)
+    TextView tv_address;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -112,7 +115,7 @@ public class MineFragment extends BaseFragment {
         top_left.setVisibility(View.INVISIBLE);
     }
 
-    @OnClick({R.id.ll_dec,R.id.ll_suan_li,R.id.iv_head_img,R.id.ll_address,R.id.ll_setting,R.id.ll_enger})
+    @OnClick({R.id.ll_charge,R.id.ll_dec,R.id.ll_suan_li,R.id.iv_head_img,R.id.ll_address,R.id.ll_setting,R.id.ll_enger})
     void viewClick(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -141,6 +144,10 @@ public class MineFragment extends BaseFragment {
                 intent.putExtra("D_CURRENCY",D_CURRENCY);
                 intent.putExtra("QK_CURRENCY",QK_CURRENCY);
                 intent.putExtra("A_CURRENCY",A_CURRENCY);
+                startActivity(intent);
+                break;
+            case R.id.ll_charge:
+                intent = new Intent(getActivity(),ChargeActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -181,6 +188,7 @@ public class MineFragment extends BaseFragment {
                     tv_QK_CURRENCY.setText(pd_obj.getString("QK_CURRENCY"));
                     tv_S_CURRENCY.setText(pd_obj.getString("S_CURRENCY"));
                     tv_W_ENERGY.setText(pd_obj.getString("W_ENERGY"));
+                    tv_address.setText(SPUtils.getString(SPUtils.wallet_address));
                 } else {
                     ToastUtils.toastutils(message,getActivity());
                 }

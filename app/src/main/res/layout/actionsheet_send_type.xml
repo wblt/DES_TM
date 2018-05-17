@@ -23,7 +23,7 @@
         android:gravity="center"
         android:textSize="12dp"
         android:textColor="@color/white"
-        android:text="发送区块SHC" />
+        android:text="发送区块DEC" />
     <TextView
         android:id="@+id/cancel"
         android:layout_width="match_parent"

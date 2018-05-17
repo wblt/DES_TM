@@ -45,6 +45,7 @@
                 android:orientation="horizontal"
                 android:gravity="center">
                 <TextView
+                    android:id="@+id/tv_address"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -90,6 +91,7 @@
                 android:layout_height="1dp"
                 android:background="@color/line_singer"></LinearLayout>
             <LinearLayout
+                android:id="@+id/ll_charge"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:orientation="horizontal"

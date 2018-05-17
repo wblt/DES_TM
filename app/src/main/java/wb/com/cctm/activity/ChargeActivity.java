@@ -2,37 +2,26 @@ package wb.com.cctm.activity;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lmj.mypwdinputlibrary.InputPwdView;
 import com.lmj.mypwdinputlibrary.MyInputPwdUtil;
-import com.lzy.imagepicker.ImagePicker;
-import com.lzy.imagepicker.ui.ImageGridActivity;
 
 import org.xutils.http.RequestParams;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import wb.com.cctm.R;
-import wb.com.cctm.adapter.BBPageAdapter;
 import wb.com.cctm.base.BaseActivity;
-import wb.com.cctm.commons.utils.ImageLoader;
 import wb.com.cctm.commons.utils.SPUtils;
 import wb.com.cctm.commons.utils.ToastUtils;
 import wb.com.cctm.commons.widget.ActionSheet;
@@ -40,7 +29,8 @@ import wb.com.cctm.net.CommonCallbackImp;
 import wb.com.cctm.net.FlowAPI;
 import wb.com.cctm.net.MXUtils;
 
-public class FinancialTransferActivity extends BaseActivity {
+
+public class ChargeActivity extends BaseActivity {
 
     @BindView(R.id.tv_d_curr)
     TextView tv_d_curr;
@@ -61,14 +51,13 @@ public class FinancialTransferActivity extends BaseActivity {
     TextView tv_send_type;
     private Dialog dialog;
     private String send_type = "0";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        appendMainBody(this,R.layout.activity_financial_transfer);
-        appendTopBody(R.layout.activity_top_text);
+        appendMainBody(this,R.layout.activity_charge);
+        appendTopBody(R.layout.activity_top_icon);
         setTopLeftDefultListener();
-        setTopBarTitle("财务转账");
+        setTopBarTitle("发送零钱");
         ButterKnife.bind(this);
         initview();
         sendMes();
@@ -84,7 +73,7 @@ public class FinancialTransferActivity extends BaseActivity {
             }
             @Override
             public void forgetPwd() {
-                ToastUtils.toastutils("忘记密码",FinancialTransferActivity.this);
+                ToastUtils.toastutils("忘记密码",ChargeActivity.this);
             }
 
             @Override
@@ -133,19 +122,19 @@ public class FinancialTransferActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.btn_commit:
                 if (TextUtils.isEmpty(et_wallet_address.getText().toString())) {
-                    ToastUtils.toastutils("请输入转入的钱包地址",FinancialTransferActivity.this);
+                    ToastUtils.toastutils("请输入转入的钱包地址",ChargeActivity.this);
                     return;
                 }
                 if (TextUtils.isEmpty(et_number.getText().toString())) {
-                    ToastUtils.toastutils("请输入转入的数量",FinancialTransferActivity.this);
+                    ToastUtils.toastutils("请输入转入的数量",ChargeActivity.this);
                     return;
                 }
                 if (et_wallet_address.getText().toString().length() != 64) {
-                    ToastUtils.toastutils("钱包地址长度不正确",FinancialTransferActivity.this);
+                    ToastUtils.toastutils("钱包地址长度不正确",ChargeActivity.this);
                     return;
                 }
                 if (SPUtils.getString(SPUtils.safety).equals("0")) {
-                    Intent intent = new Intent(FinancialTransferActivity.this,SafetyPwdActivity.class);
+                    Intent intent = new Intent(ChargeActivity.this,SafetyPwdActivity.class);
                     startActivity(intent);
                 } else {
                     myInputPwdUtil.show();
@@ -176,7 +165,7 @@ public class FinancialTransferActivity extends BaseActivity {
                     tv_w_energy.setText(pd_obj.getString("W_ENERGY"));
                     tv_d_curr.setText(pd_obj.getString("D_CURRENCY"));
                 } else {
-                    ToastUtils.toastutils(message,FinancialTransferActivity.this);
+                    ToastUtils.toastutils(message,ChargeActivity.this);
                 }
 
             }
@@ -200,10 +189,10 @@ public class FinancialTransferActivity extends BaseActivity {
                 if (result.equals(FlowAPI.SUCCEED)) {
                     String pd = jsonObject.getString("pd");
                     JSONObject pd_obj = JSONObject.parseObject(pd);
-                    ToastUtils.toastutils("转账成功",FinancialTransferActivity.this);
+                    ToastUtils.toastutils("转账成功",ChargeActivity.this);
                     finish();
                 } else {
-                    ToastUtils.toastutils(message,FinancialTransferActivity.this);
+                    ToastUtils.toastutils(message,ChargeActivity.this);
                 }
             }
         });

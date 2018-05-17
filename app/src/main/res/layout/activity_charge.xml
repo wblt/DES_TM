@@ -150,10 +150,12 @@
                     android:singleLine="true"/>
             </LinearLayout>
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/line_singer"></LinearLayout>
             <LinearLayout
+                android:visibility="gone"
                 android:id="@+id/ll_send_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
