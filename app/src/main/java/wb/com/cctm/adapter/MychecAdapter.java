@@ -41,40 +41,40 @@ public class MychecAdapter extends BaseRecyclerViewAdapter<MycheckBean> {
             binding.tvNameB.setText(object.getUSER_NAME_B());
             binding.tvTime.setText(object.getCREATE_TIME());
             if (object.getSTATUS().equals("0")) {
-                binding.tvStatus.setText("待审核");
+                binding.tvStatus.setText("(待审核)");
 //                binding.tvBtnStatus.setVisibility(View.VISIBLE);
 //                binding.tvBtnStatus.setText("可取消");
             } else if (object.getSTATUS().equals("1")) {
-                binding.tvStatus.setText("审核通过");
+                binding.tvStatus.setText("(审核通过)");
 //                binding.tvBtnStatus.setVisibility(View.VISIBLE);
 //                binding.tvBtnStatus.setText("可取消");
             } else if (object.getSTATUS().equals("2")) {
-                binding.tvStatus.setText("部分成交");
+                binding.tvStatus.setText("(部分成交)");
 //                binding.tvBtnStatus.setVisibility(View.VISIBLE);
 //                binding.tvBtnStatus.setText("可取消");
             } else if (object.getSTATUS().equals("3")) {
-                binding.tvStatus.setText("待付款");
+                binding.tvStatus.setText("(待付款)");
 //                binding.tvBtnStatus.setVisibility(View.INVISIBLE);
 //                binding.tvBtnStatus.setText("确认付款");
             } else if (object.getSTATUS().equals("4")) {
-                binding.tvStatus.setText("已付款");
+                binding.tvStatus.setText("(已付款)");
 //                binding.tvBtnStatus.setVisibility(View.VISIBLE);
 //                binding.tvBtnStatus.setText("确认收款");
             } else if (object.getSTATUS().equals("5")) {
-                binding.tvStatus.setText("已成交");
+                binding.tvStatus.setText("(已成交)");
 //                binding.tvBtnStatus.setVisibility(View.INVISIBLE);
             } else if (object.getSTATUS().equals("6")) {
-                binding.tvStatus.setText("已取消");
+                binding.tvStatus.setText("(已取消)");
 //                binding.tvBtnStatus.setVisibility(View.INVISIBLE);
             } else {
-                binding.tvStatus.setText("未知状态");
+                binding.tvStatus.setText("(未知状态)");
 //                binding.tvBtnStatus.setVisibility(View.INVISIBLE);
             }
-            binding.tvBtnStatus.setOnClickListener(new View.OnClickListener() {
+            binding.llItem.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
+                public void onClick(View v) {
                     if (listener!=null) {
-                        listener.onClick(object,view,position);
+                        listener.onClick(object,v,position);
                     }
                 }
             });

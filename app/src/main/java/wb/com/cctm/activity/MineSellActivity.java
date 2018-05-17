@@ -8,10 +8,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.lmj.mypwdinputlibrary.InputPwdView;
 import com.lmj.mypwdinputlibrary.MyInputPwdUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -24,9 +24,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import wb.com.cctm.R;
+import wb.com.cctm.adapter.MybuyAdapter;
 import wb.com.cctm.adapter.MychecAdapter;
-import wb.com.cctm.adapter.ShengHeAdapter;
 import wb.com.cctm.base.BaseActivity;
 import wb.com.cctm.base.OnItemClickListener;
 import wb.com.cctm.bean.MycheckBean;
@@ -36,42 +37,45 @@ import wb.com.cctm.net.CommonCallbackImp;
 import wb.com.cctm.net.FlowAPI;
 import wb.com.cctm.net.MXUtils;
 
-public class ShengHeActivity extends BaseActivity {
+
+public class MineSellActivity extends BaseActivity {
+
+    private Unbinder unbinder;
     @BindView(R.id.recyc_list)
     RecyclerView recyc_list;
     @BindView(R.id.ll_no_data)
     LinearLayout ll_no_data;
     private String queryid = "0";
-    private ShengHeAdapter adpter;
+    private  MychecAdapter adpter;
     @BindView(R.id.sm_refreshLayout)
     SmartRefreshLayout sm_refreshLayout;
+    private MyInputPwdUtil myInputPwdUtil;
+    private String action = "";
+    private String TRADE_ID = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        appendMainBody(this,R.layout.activity_sheng_he);
-        appendTopBody(R.layout.activity_top_text);
+        appendMainBody(this,R.layout.activity_mine_sell);
+        appendTopBody(R.layout.activity_top_icon);
         setTopLeftDefultListener();
-        setTopBarTitle("审核列表");
+        setTopBarTitle("我的卖单");
         ButterKnife.bind(this);
         initview();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         adpter.clear();
         queryid = "0";
         sellList("1");
     }
-
     private void initview() {
-        adpter = new ShengHeAdapter();
-        recyc_list.setLayoutManager(new LinearLayoutManager(this));
+        adpter = new MychecAdapter();
+        recyc_list.setLayoutManager(new LinearLayoutManager(MineSellActivity.this));
         recyc_list.setAdapter(adpter);
         adpter.setOnItemClickListener(new OnItemClickListener<MycheckBean>() {
             @Override
             public void onClick(MycheckBean mycheckBean, View view, int position) {
-                test(mycheckBean.getTRADE_ID());
+                Intent intent = new Intent(MineSellActivity.this, OrderDetailActivity.class);
+                intent.putExtra("TRADE_ID",mycheckBean.getTRADE_ID());
+                intent.putExtra("action","卖单");
+                startActivity(intent);
             }
         });
         sm_refreshLayout.setOnRefreshListener(new OnRefreshListener() {
@@ -90,6 +94,29 @@ public class ShengHeActivity extends BaseActivity {
                 sellList("2");
             }
         });
+
+        myInputPwdUtil = new MyInputPwdUtil(MineSellActivity.this);
+        myInputPwdUtil.getMyInputDialogBuilder().setAnimStyle(R.style.dialog_anim);
+        myInputPwdUtil.setListener(new InputPwdView.InputPwdListener() {
+            @Override
+            public void hide() {
+                myInputPwdUtil.hide();
+            }
+            @Override
+            public void forgetPwd() {
+                ToastUtils.toastutils("忘记密码",MineSellActivity.this);
+            }
+
+            @Override
+            public void finishPwd(String pwd) {
+                myInputPwdUtil.hide();
+                if (action.equals("可取消")) {
+                    orderCancle(pwd);
+                } else if (action.equals("确认收款")){
+                    surePay(pwd);
+                }
+            }
+        });
     }
 
     private void  sellList(String type) {
@@ -97,7 +124,7 @@ public class ShengHeActivity extends BaseActivity {
         requestParams.addParameter("QUERY_ID", queryid);
         requestParams.addParameter("USER_NAME", SPUtils.getString(SPUtils.username));
         requestParams.addParameter("TYPE", type);
-        MXUtils.httpPost(requestParams,new CommonCallbackImp("MARKET - 卖单列表",requestParams, this){
+        MXUtils.httpPost(requestParams,new CommonCallbackImp("MARKET - 卖单列表",requestParams, MineSellActivity.this){
             @Override
             public void onSuccess(String data) {
                 super.onSuccess(data);
@@ -120,7 +147,7 @@ public class ShengHeActivity extends BaseActivity {
                         ll_no_data.setVisibility(View.VISIBLE);
                     }
                 } else {
-                    ToastUtils.toastutils(message,ShengHeActivity.this);
+                    ToastUtils.toastutils(message,MineSellActivity.this);
                 }
 
             }
@@ -128,12 +155,12 @@ public class ShengHeActivity extends BaseActivity {
 
     }
 
-    private void test(String TRADE_ID) {
-        RequestParams requestParams= FlowAPI.getRequestParams(FlowAPI.pay);
+    private void orderCancle(String pwd) {
+        RequestParams requestParams= FlowAPI.getRequestParams(FlowAPI.orderCancle);
         requestParams.addParameter("TRADE_ID", TRADE_ID);
-        requestParams.addParameter("STATUS", "1");
-        requestParams.addParameter("PASSW", "617478");
-        MXUtils.httpPost(requestParams,new CommonCallbackImp("MARKET - 测试审核",requestParams, this){
+        requestParams.addParameter("TYPE", "1");
+        requestParams.addParameter("PASSW", pwd);
+        MXUtils.httpPost(requestParams,new CommonCallbackImp("MARKET - 订单取消",requestParams, MineSellActivity.this){
             @Override
             public void onSuccess(String data) {
                 super.onSuccess(data);
@@ -143,17 +170,42 @@ public class ShengHeActivity extends BaseActivity {
                 if (result.equals(FlowAPI.SUCCEED)) {
                     String pd = jsonObject.getString("pd");
                     JSONObject pd_obj = JSONObject.parseObject(pd);
-                    ToastUtils.toastutils("审核成功",ShengHeActivity.this);
+                    ToastUtils.toastutils("取消成功",MineSellActivity.this);
                     // 调下刷新接口
                     queryid = "0";
                     adpter.clear();
                     sellList("1");
                 } else {
-                    ToastUtils.toastutils(message,ShengHeActivity.this);
+                    ToastUtils.toastutils(message,MineSellActivity.this);
+                }
+            }
+        });
+    }
+
+    private void surePay(String pwd) {
+        RequestParams requestParams= FlowAPI.getRequestParams(FlowAPI.surePay);
+        requestParams.addParameter("TRADE_ID", TRADE_ID);
+        requestParams.addParameter("PASSW", pwd);
+        MXUtils.httpPost(requestParams,new CommonCallbackImp("MARKET - 订单确认收款",requestParams,MineSellActivity.this){
+            @Override
+            public void onSuccess(String data) {
+                super.onSuccess(data);
+                JSONObject jsonObject = JSONObject.parseObject(data);
+                String result = jsonObject.getString("code");
+                String message = jsonObject.getString("message");
+                if (result.equals(FlowAPI.SUCCEED)) {
+                    String pd = jsonObject.getString("pd");
+                    JSONObject pd_obj = JSONObject.parseObject(pd);
+                    ToastUtils.toastutils("收款成功",MineSellActivity.this);
+                    // 调下刷新接口
+                    queryid = "0";
+                    adpter.clear();
+                    sellList("1");
+                } else {
+                    ToastUtils.toastutils(message,MineSellActivity.this);
                 }
 
             }
         });
-
     }
 }

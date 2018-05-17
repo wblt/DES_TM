@@ -238,7 +238,9 @@
         <activity android:name=".activity.SafetyPwd2Activity" />
         <activity android:name=".activity.InvitingInfoActivity" />
         <activity android:name=".activity.ChargeActivity" />
-        <activity android:name=".activity.MarketActivity"></activity>
+        <activity android:name=".activity.MarketActivity" />
+        <activity android:name=".activity.MineBuyActivity" />
+        <activity android:name=".activity.MineSellActivity"></activity>
     </application>
 
 </manifest>

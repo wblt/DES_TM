@@ -59,6 +59,8 @@ import wb.com.cctm.R;
 import wb.com.cctm.activity.GuadanActivity;
 import wb.com.cctm.activity.MarkBuyActivity;
 import wb.com.cctm.activity.MarketActivity;
+import wb.com.cctm.activity.MineBuyActivity;
+import wb.com.cctm.activity.MineSellActivity;
 import wb.com.cctm.adapter.BBPageAdapter;
 import wb.com.cctm.adapter.CheckAdpter;
 import wb.com.cctm.base.BaseActivity;
@@ -132,10 +134,12 @@ public class MarketFragment extends BaseFragment {
                 tv_week.setTextColor(getActivity().getResources().getColor(R.color.yellow));
                 break;
             case R.id.ll_my_buy:
-
+                intent = new Intent(getActivity(), MineBuyActivity.class);
+                startActivity(intent);
                 break;
             case R.id.ll_my_sell:
-
+                intent = new Intent(getActivity(), MineSellActivity.class);
+                startActivity(intent);
                 break;
             case R.id.ll_gua_dan:
                 intent = new Intent(getActivity(), GuadanActivity.class);
