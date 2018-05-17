@@ -94,6 +94,12 @@ public class MarketFragment extends BaseFragment {
     LinearLayout ll_no_data;
     @BindView(R.id.sm_refreshLayout)
     SmartRefreshLayout sm_refreshLayout;
+    @BindView(R.id.tv_guadan)
+    TextView tv_guadan;
+    @BindView(R.id.tv_buy)
+    TextView tv_buy;
+    @BindView(R.id.tv_sell)
+    TextView tv_sell;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -159,7 +165,7 @@ public class MarketFragment extends BaseFragment {
         marketList("1");
     }
 
-    @OnClick({R.id.tv_day,R.id.tv_week})
+    @OnClick({R.id.tv_day,R.id.tv_week,R.id.tv_guadan,R.id.tv_buy,R.id.tv_sell})
     void viewClick(View view) {
         List<Entry> entries;
         switch (view.getId()) {
@@ -172,6 +178,30 @@ public class MarketFragment extends BaseFragment {
                 depth("1","周线走势图");
                 tv_day.setTextColor(getActivity().getResources().getColor(R.color.white));
                 tv_week.setTextColor(getActivity().getResources().getColor(R.color.yellow));
+                break;
+            case R.id.tv_guadan:
+                tv_buy.setBackgroundResource(0);
+                tv_sell.setBackgroundResource(0);
+                tv_guadan.setBackgroundResource(0);
+                tv_buy.setBackgroundResource(R.drawable.radis_round_gray);
+                tv_sell.setBackgroundResource(R.drawable.radis_round_gray);
+                tv_guadan.setBackgroundResource(R.drawable.radis_round_red);
+                break;
+            case R.id.tv_buy:
+                tv_buy.setBackgroundResource(0);
+                tv_sell.setBackgroundResource(0);
+                tv_guadan.setBackgroundResource(0);
+                tv_sell.setBackgroundResource(R.drawable.radis_round_gray);
+                tv_guadan.setBackgroundResource(R.drawable.radis_round_gray);
+                tv_buy.setBackgroundResource(R.drawable.radis_round_red);
+                break;
+            case R.id.tv_sell:
+                tv_buy.setBackgroundResource(0);
+                tv_sell.setBackgroundResource(0);
+                tv_guadan.setBackgroundResource(0);
+                tv_buy.setBackgroundResource(R.drawable.radis_round_gray);
+                tv_guadan.setBackgroundResource(R.drawable.radis_round_gray);
+                tv_sell.setBackgroundResource(R.drawable.radis_round_red);
                 break;
             default:
                 break;
