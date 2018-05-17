@@ -109,6 +109,7 @@
                     android:textColor="@color/white"/>
                 <EditText
                     android:id="@+id/et_number"
+                    android:gravity="center"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_width="match_parent"

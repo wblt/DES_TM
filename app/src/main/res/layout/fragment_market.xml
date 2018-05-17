@@ -7,7 +7,8 @@
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/sm_refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:srlEnableLoadMore="false">
     <com.scwang.smartrefresh.layout.header.ClassicsHeader
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -157,8 +158,5 @@
                     android:background="@color/line_singer"></LinearLayout>
             </LinearLayout>
         </ScrollView>
-        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </FrameLayout>

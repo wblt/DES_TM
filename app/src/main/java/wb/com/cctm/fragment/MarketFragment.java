@@ -216,8 +216,8 @@ public class MarketFragment extends BaseFragment {
         //一个LineDataSet就是一条线
         LineDataSet lineDataSet = new LineDataSet(entries, "日线走势图");
         LineData data = new LineData(lineDataSet);
-        lineDataSet.setColor(Color.GREEN);
-        lineDataSet.setValueTextColor(Color.GREEN);
+        lineDataSet.setColor(Color.YELLOW);
+        lineDataSet.setValueTextColor(Color.YELLOW);
         lineChart.setData(data);
     }
 
