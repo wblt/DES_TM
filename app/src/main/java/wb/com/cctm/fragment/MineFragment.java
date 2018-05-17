@@ -39,6 +39,7 @@ import wb.com.cctm.activity.AllReleaseActivity;
 import wb.com.cctm.activity.CompoundActivity;
 import wb.com.cctm.activity.FinancialTransferActivity;
 import wb.com.cctm.activity.InvitingFriendsActivity;
+import wb.com.cctm.activity.MoveWalletActivity;
 import wb.com.cctm.activity.MyorderActivity;
 import wb.com.cctm.activity.ReciveCodeActivity;
 import wb.com.cctm.activity.ReciverRecordActivity;
@@ -81,6 +82,9 @@ public class MineFragment extends BaseFragment {
     TextView tv_D_CURRENCY;
     @BindView(R.id.tv_W_ENERGY)
     TextView tv_W_ENERGY;
+    private String A_CURRENCY = "";
+    private String QK_CURRENCY = "";
+    private String D_CURRENCY = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -108,7 +112,7 @@ public class MineFragment extends BaseFragment {
         top_left.setVisibility(View.INVISIBLE);
     }
 
-    @OnClick({R.id.ll_suan_li,R.id.ll_user_info,R.id.ll_address,R.id.ll_setting,R.id.ll_enger})
+    @OnClick({R.id.ll_dec,R.id.ll_suan_li,R.id.ll_user_info,R.id.ll_address,R.id.ll_setting,R.id.ll_enger})
     void viewClick(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -130,6 +134,13 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.ll_suan_li:
                 intent = new Intent(getActivity(),AllReleaseActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ll_dec:
+                intent = new Intent(getActivity(),MoveWalletActivity.class);
+                intent.putExtra("D_CURRENCY",D_CURRENCY);
+                intent.putExtra("QK_CURRENCY",QK_CURRENCY);
+                intent.putExtra("A_CURRENCY",A_CURRENCY);
                 startActivity(intent);
                 break;
         }
@@ -158,6 +169,11 @@ public class MineFragment extends BaseFragment {
                     SPUtils.putString(SPUtils.nick_name,pd_obj.getString("NICK_NAME"));
                     SPUtils.putString(SPUtils.safety,pd_obj.getString("IFPAS"));
                     SPUtils.putString(SPUtils.w_energy,pd_obj.getString("W_ENERGY"));
+
+                    D_CURRENCY = pd_obj.getString("D_CURRENCY");
+                    A_CURRENCY = pd_obj.getString("A_CURRENCY");
+                    QK_CURRENCY = pd_obj.getString("QK_CURRENCY");
+
                     // 设置数据
                     ImageLoader.loadCircle(SPUtils.getString(SPUtils.headimgpath),iv_head_img);
                     tv_username.setText(SPUtils.getString(SPUtils.nick_name));

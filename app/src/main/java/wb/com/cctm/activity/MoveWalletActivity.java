@@ -46,7 +46,7 @@ public class MoveWalletActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         appendMainBody(this,R.layout.activity_move_wallet);
         appendTopBody(R.layout.activity_top_text);
-        setTopBarTitle("转入区块SHC钱包");
+        setTopBarTitle("DEC");
         setTopLeftDefultListener();
         ButterKnife.bind(this);
         initview();
@@ -63,7 +63,7 @@ public class MoveWalletActivity extends BaseActivity {
         et_number.setHint(s);
     }
 
-    @OnClick({R.id.btn_commit,R.id.iv_showCode,R.id.iv_input_xx})
+    @OnClick({R.id.btn_commit,R.id.iv_showCode})
     void viewClick(View view) {
         switch (view.getId()) {
             case R.id.btn_commit:
@@ -72,9 +72,6 @@ public class MoveWalletActivity extends BaseActivity {
             case R.id.iv_showCode:
                 iv_showCode.setImageBitmap(Code.getInstance().createBitmap("#111F3F"));
                 realCode = Code.getInstance().getCode().toLowerCase();
-                break;
-            case R.id.iv_input_xx:
-                et_number.getText().clear();
                 break;
             default:
                 break;
@@ -125,7 +122,6 @@ public class MoveWalletActivity extends BaseActivity {
                 } else {
                     ToastUtils.toastutils(message,MoveWalletActivity.this);
                 }
-
             }
         });
     }

@@ -1,14 +1,17 @@
 package wb.com.cctm.fragment;
+import android.Manifest;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -22,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -74,6 +78,9 @@ import wb.com.cctm.commons.utils.ImageLoader;
 import wb.com.cctm.commons.utils.SPUtils;
 import wb.com.cctm.commons.utils.ToastUtils;
 import wb.com.cctm.commons.widget.MyGridView;
+import wb.com.cctm.commons.zxing.android.CaptureActivity;
+import wb.com.cctm.commons.zxing.bean.ZxingConfig;
+import wb.com.cctm.commons.zxing.common.Constant;
 import wb.com.cctm.net.CommonCallbackImp;
 import wb.com.cctm.net.FlowAPI;
 import wb.com.cctm.net.MXUtils;
@@ -91,6 +98,7 @@ public class DeliverFragment extends BaseFragment {
     LinearLayout ll_content;
     @BindView(R.id.ll_no_data)
     LinearLayout ll_no_data;
+    private int REQUEST_CODE_SCAN = 111;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,6 +125,29 @@ public class DeliverFragment extends BaseFragment {
     private void initview(View view) {
         top_left.setVisibility(View.INVISIBLE);
         top_right_icon.setImageResource(R.mipmap.scan);
+        top_right_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(getActivity(),
+                        Manifest.permission.CAMERA)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    //权限还没有授予，需要在这里写申请权限的代码
+                    requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_CODE_SCAN);
+                } else {
+                    Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                                /*ZxingConfig是配置类  可以设置是否显示底部布局，闪光灯，相册，是否播放提示音  震动等动能
+                                * 也可以不传这个参数
+                                * 不传的话  默认都为默认不震动  其他都为true
+                                * */
+                    ZxingConfig config = new ZxingConfig();
+                    config.setPlayBeep(true);
+                    config.setShake(true);
+                    config.setShowbottomLayout(false);
+                    intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
+                    startActivityForResult(intent, REQUEST_CODE_SCAN);
+                }
+            }
+        });
         newsAdapter = new NewsAdapter();
         newsAdapter.setOnItemClickListener(new OnItemClickListener<NoticeBean>() {
             @Override
@@ -167,5 +198,32 @@ public class DeliverFragment extends BaseFragment {
             }
         });
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_SCAN) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission Granted准许
+                Toast.makeText(getActivity(),"已获得授权！",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                                /*ZxingConfig是配置类  可以设置是否显示底部布局，闪光灯，相册，是否播放提示音  震动等动能
+                                * 也可以不传这个参数
+                                * 不传的话  默认都为默认不震动  其他都为true
+                                * */
+                ZxingConfig config = new ZxingConfig();
+                config.setPlayBeep(true);
+                config.setShake(true);
+                config.setShowbottomLayout(false);
+                intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
+                startActivityForResult(intent, REQUEST_CODE_SCAN);
+            } else {
+                // Permission Denied拒绝
+                Toast.makeText(getActivity(),"未获得授权！",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
 
 }

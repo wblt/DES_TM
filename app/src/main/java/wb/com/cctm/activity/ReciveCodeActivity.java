@@ -59,7 +59,7 @@ public class ReciveCodeActivity extends BaseActivity {
         appendMainBody(this,R.layout.activity_recive_code);
         appendTopBody(R.layout.activity_top_text);
         setTopLeftDefultListener();
-        setTopBarTitle("收款地址");
+        setTopBarTitle("收付款");
         ButterKnife.bind(this);
         initView();
     }
