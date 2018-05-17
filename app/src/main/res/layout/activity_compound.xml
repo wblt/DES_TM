@@ -11,58 +11,64 @@
         android:orientation="vertical"
         android:layout_margin="10dp">
         <LinearLayout
-            android:id="@+id/ll_fuli"
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:gravity="center_vertical">
-            <TextView
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/buttom_bg_gray">
+            <LinearLayout
+                android:id="@+id/ll_fuli"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="自动复利"
-                android:textSize="12dp"
-                android:textColor="@color/white"
-                />
-            <ImageView
-                android:id="@+id/img_fuli_gou"
-                android:visibility="invisible"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@mipmap/gou_icon"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/main_botton_text_color"></LinearLayout>
-        <LinearLayout
-            android:id="@+id/ll_stop_fuli"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:gravity="center_vertical"
-            android:background="@android:color/transparent">
-            <TextView
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
+                android:padding="10dp"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="自动复利"
+                    android:textSize="12dp"
+                    android:textColor="@color/white"
+                    />
+                <ImageView
+                    android:id="@+id/img_fuli_gou"
+                    android:visibility="invisible"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@mipmap/gou_icon"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_singer"></LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_stop_fuli"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="停止复利"
-                android:textSize="12dp"
-                android:textColor="@color/white"
-                />
-            <ImageView
-                android:id="@+id/img_stop_gou"
-                android:visibility="invisible"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@mipmap/gou_icon"/>
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:background="@android:color/transparent">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="停止复利"
+                    android:textSize="12dp"
+                    android:textColor="@color/white"
+                    />
+                <ImageView
+                    android:id="@+id/img_stop_gou"
+                    android:visibility="invisible"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@mipmap/gou_icon"/>
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/bottom_color"></LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,13 +97,15 @@
                 android:textSize="12dp"/>
         </LinearLayout>
         <Button
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:id="@+id/btn_commit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="提交"
             android:textSize="12dp"
             android:textColor="@color/white"
-            android:background="@drawable/buttom_rect_gray"/>
+            android:background="@drawable/buttom_bg_gray"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -72,7 +72,7 @@ public class CompoundActivity extends BaseActivity {
                         dismissLoadding();
                         lastflag = flag;
                         btn_commit.setBackgroundResource(0);
-                        btn_commit.setBackgroundResource(R.drawable.button_round_gray);
+                        btn_commit.setBackgroundResource(R.drawable.buttom_bg_gray);
                         cgFl();
                     }
                 },2000);
@@ -92,10 +92,10 @@ public class CompoundActivity extends BaseActivity {
         }
         if (lastflag.equals(flag)) {
             btn_commit.setBackgroundResource(0);
-            btn_commit.setBackgroundResource(R.drawable.button_round_gray);
+            btn_commit.setBackgroundResource(R.drawable.buttom_bg_gray);
         } else {
             btn_commit.setBackgroundResource(0);
-            btn_commit.setBackgroundResource(R.drawable.button_round_golden);
+            btn_commit.setBackgroundResource(R.drawable.buttom_bg_gray);
         }
     }
 
