@@ -125,6 +125,4 @@ public class MoveWalletActivity extends BaseActivity {
         });
     }
 
-
-
 }

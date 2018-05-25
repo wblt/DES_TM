@@ -80,7 +80,14 @@ public class MarketFragment extends BaseFragment {
     @BindView(R.id.top_right_text)
     TextView top_right_text;
     private Unbinder unbinder;
-
+    @BindView(R.id.recyc_list)
+    RecyclerView recyc_list;
+    private String queryId = "0";
+    private CheckAdpter adpter;
+    @BindView(R.id.ll_no_data)
+    LinearLayout ll_no_data;
+    @BindView(R.id.sm_refreshLayout)
+    SmartRefreshLayout sm_refreshLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -101,12 +108,53 @@ public class MarketFragment extends BaseFragment {
 
     private void initview(View view) {
         top_left.setVisibility(View.INVISIBLE);
+        top_right_text.setText("挂单");
+        top_right_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),GuadanActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        adpter = new CheckAdpter();
+        adpter.setOnItemClickListener(new OnItemClickListener<MarkBean>() {
+            @Override
+            public void onClick(MarkBean s, View view, int position) {
+                Intent intent = new Intent(getActivity(), MarkBuyActivity.class);
+                intent.putExtra("TRADE_ID",s.getTRADE_ID());
+                // 价格
+                intent.putExtra("price",s.getBUSINESS_PRICE());
+                intent.putExtra("number",s.getBUSINESS_COUNT());
+                startActivity(intent);
+            }
+        });
+        recyc_list.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyc_list.setAdapter(adpter);
+        sm_refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                refreshLayout.finishRefresh(1000);
+                adpter.clear();
+                queryId = "0";
+                marketList("1");
+            }
+        });
+        sm_refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                refreshLayout.finishLoadMore(1000);
+                marketList("2");
+            }
+        });
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        adpter.clear();
+        queryId = "0";
+        marketList("1");
     }
 
 
@@ -116,9 +164,38 @@ public class MarketFragment extends BaseFragment {
         super.onDestroy();
     }
 
+    private void marketList(String type) {
+        RequestParams requestParams= FlowAPI.getRequestParams(FlowAPI.marketList);
+        requestParams.addParameter("QUERY_ID", queryId);
+        requestParams.addParameter("TYPE", type);
+        MXUtils.httpPost(requestParams,new CommonCallbackImp("MARKET - 市场列表",requestParams, (BaseActivity) getActivity()){
+            @Override
+            public void onSuccess(String data) {
+                super.onSuccess(data);
+                JSONObject jsonObject = JSONObject.parseObject(data);
+                String result = jsonObject.getString("code");
+                String message = jsonObject.getString("message");
+                if (result.equals(FlowAPI.SUCCEED)) {
+                    String pd = jsonObject.getString("pd");
+                    List<MarkBean> beanList = JSONArray.parseArray(pd,MarkBean.class);
+                    if (beanList.size()>0) {
+                        queryId = beanList.get(beanList.size()-1).getTRADE_ID();
+                    }
+                    adpter.addAll(beanList);
+                    adpter.notifyDataSetChanged();
+                    if (adpter.getData().size()>0) {
+                        recyc_list.setVisibility(View.VISIBLE);
+                        ll_no_data.setVisibility(View.GONE);
+                    } else {
+                        recyc_list.setVisibility(View.GONE);
+                        ll_no_data.setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    ToastUtils.toastutils(message,getActivity());
+                }
 
-
-
-
+            }
+        });
+    }
 
 }

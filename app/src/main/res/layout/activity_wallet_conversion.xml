@@ -40,7 +40,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="能量"
+                        android:text="当前能量"
                         android:textSize="12dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
@@ -62,7 +62,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="算力"
+                        android:text="可用算力"
                         android:textSize="12dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
@@ -84,7 +84,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="DEC"
+                        android:text="当前区块DEC"
                         android:textSize="12dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>

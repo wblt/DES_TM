@@ -134,7 +134,7 @@ public class DeliverFragment extends BaseFragment {
         super.onResume();
     }
 
-    @OnClick({R.id.tv_day,R.id.tv_week})
+    @OnClick({R.id.ll_dui,R.id.ll_address,R.id.ll_caiwu,R.id.tv_day,R.id.tv_week})
     void viewClick(View view) {
         List<Entry> entries;
         Intent intent;
@@ -148,6 +148,18 @@ public class DeliverFragment extends BaseFragment {
                 depth("1","周线走势图");
                 tv_day.setTextColor(getActivity().getResources().getColor(R.color.white));
                 tv_week.setTextColor(getActivity().getResources().getColor(R.color.yellow));
+                break;
+            case R.id.ll_caiwu:
+                intent = new Intent(getActivity(),FinancialTransferActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ll_address:
+                intent = new Intent(getActivity(),ReciveCodeActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ll_dui:
+                intent = new Intent(getActivity(),WalletConversionActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;
