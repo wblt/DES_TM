@@ -1,5 +1,6 @@
 package wb.com.cctm.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -86,6 +87,9 @@ public class Register2Activity extends BaseActivity {
                     SPUtils.putString(SPUtils.username,username);
                     SPUtils.putString(SPUtils.password,password);
                     SPUtils.putString(SPUtils.phone,userphone);
+                    SPUtils.putString(SPUtils.isLogin,"1");
+                    Intent intent = new Intent(Register2Activity.this,MainActivity.class);
+                    startActivity(intent);
                     finish();
                 } else {
                     ToastUtils.toastutils(message,Register2Activity.this);
@@ -95,6 +99,5 @@ public class Register2Activity extends BaseActivity {
         });
 
     }
-
 
 }

@@ -60,13 +60,12 @@ public class ReciveCodeActivity extends BaseActivity {
         appendMainBody(this,R.layout.activity_recive_code);
         appendTopBody(R.layout.activity_top_text);
         setTopLeftDefultListener();
-        setTopBarTitle("收付款");
+        setTopBarTitle("收款地址");
         ButterKnife.bind(this);
         initView();
     }
 
-
-    @OnClick({R.id.ll_transfer,R.id.tv_copy,R.id.ll_transfer_in,R.id.ll_transfer_out})
+    @OnClick({R.id.tv_copy})
     void viewClick(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -74,18 +73,6 @@ public class ReciveCodeActivity extends BaseActivity {
                 ClipboardManager clip_left = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
                 clip_left.setText(tv_address.getText());
                 ToastUtils.toastutils("你已复制到粘贴板",ReciveCodeActivity.this);
-                break;
-            case R.id.ll_transfer_in:
-                intent = new Intent(ReciveCodeActivity.this,ReciverRecordActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_transfer_out:
-                intent = new Intent(ReciveCodeActivity.this,TransferRecoderActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_transfer:
-                intent = new Intent(ReciveCodeActivity.this,FinancialTransferActivity.class);
-                startActivity(intent);
                 break;
         }
     }

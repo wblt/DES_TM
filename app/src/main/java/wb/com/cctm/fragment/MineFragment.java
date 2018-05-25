@@ -40,6 +40,7 @@ import wb.com.cctm.activity.ChargeActivity;
 import wb.com.cctm.activity.CompoundActivity;
 import wb.com.cctm.activity.FinancialTransferActivity;
 import wb.com.cctm.activity.InvitingFriendsActivity;
+import wb.com.cctm.activity.InvitingInfoActivity;
 import wb.com.cctm.activity.MoveWalletActivity;
 import wb.com.cctm.activity.MyorderActivity;
 import wb.com.cctm.activity.ReciveCodeActivity;
@@ -70,10 +71,14 @@ public class MineFragment extends BaseFragment {
     ImageButton top_right_icon;
     @BindView(R.id.top_left)
     ImageButton top_left;
+    @BindView(R.id.gridview)
+    GridView gridView;
     private Unbinder unbinder;
     private String A_CURRENCY = "";
     private String QK_CURRENCY = "";
+    private String W_ENERGY = "";
     private String D_CURRENCY = "";
+    private String S_CURRENCY = "";
     //定义图标数组
     private int[] imageRes = {
             R.mipmap.suanli_icon,
@@ -110,7 +115,6 @@ public class MineFragment extends BaseFragment {
         appendTopBody(R.layout.activity_top_icon);
         unbinder = ButterKnife.bind(this,view);
         initview(view);
-        initgradle(view);
         return view;
     }
 
@@ -153,6 +157,9 @@ public class MineFragment extends BaseFragment {
                     D_CURRENCY = pd_obj.getString("D_CURRENCY");
                     A_CURRENCY = pd_obj.getString("A_CURRENCY");
                     QK_CURRENCY = pd_obj.getString("QK_CURRENCY");
+                    W_ENERGY = pd_obj.getString("W_ENERGY");
+                    S_CURRENCY = pd_obj.getString("S_CURRENCY");
+                    initgradle();
                 } else {
                     ToastUtils.toastutils(message,getActivity());
                 }
@@ -160,8 +167,7 @@ public class MineFragment extends BaseFragment {
         });
     }
 
-    private void initgradle(View view) {
-        GridView gridView= (GridView) view.findViewById(R.id.gridview);//初始化
+    private void initgradle() {
         //生成动态数组，并且转入数据
         ArrayList<HashMap<String ,Object>> listItemArrayList=new ArrayList<HashMap<String,Object>>();
         for(int i=0; i<imageRes.length; i++){
@@ -170,6 +176,14 @@ public class MineFragment extends BaseFragment {
             map.put("itemText", name[i]);
             listItemArrayList.add(map);
         }
+        HashMap<String,Object> map0 = listItemArrayList.get(0);
+        map0.put("itemText",S_CURRENCY);
+        HashMap<String,Object> map1 = listItemArrayList.get(1);
+        map1.put("itemText",QK_CURRENCY);
+        HashMap<String,Object> map2 = listItemArrayList.get(2);
+        map2.put("itemText",D_CURRENCY);
+        HashMap<String,Object> map3 = listItemArrayList.get(3);
+        map3.put("itemText",W_ENERGY);
         //生成适配器的ImageItem 与动态数组的元素相对应
         SimpleAdapter saImageItems = new SimpleAdapter(getActivity(),
                 listItemArrayList,//数据来源
@@ -197,10 +211,16 @@ public class MineFragment extends BaseFragment {
                     case "能量钱包":
                         break;
                     case "收款地址":
+                        intent = new Intent(getActivity(),ReciveCodeActivity.class);
+                        startActivity(intent);
                         break;
                     case "复利设置":
+                        intent = new Intent(getActivity(),CompoundActivity.class);
+                        startActivity(intent);
                         break;
                     case "邀请好友":
+                        intent = new Intent(getActivity(),InvitingInfoActivity.class);
+                        startActivity(intent);
                         break;
                     case "我的订单":
                         break;
