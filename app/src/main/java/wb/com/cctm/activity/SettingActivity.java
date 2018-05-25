@@ -44,7 +44,7 @@ public class SettingActivity extends BaseActivity {
         tv_version_name.setText(VersionUtil.getAppVersionName(SettingActivity.this));
     }
 
-    @OnClick({R.id.ll_fuli,R.id.ll_invate,R.id.btn_logout,R.id.ll_phone_number,R.id.ll_login_pwd,R.id.ll_safety_pwd,R.id.ll_user_bind})
+    @OnClick({R.id.btn_logout,R.id.ll_phone_number,R.id.ll_login_pwd,R.id.ll_safety_pwd,R.id.ll_user_bind})
     void viewClick(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -69,14 +69,6 @@ public class SettingActivity extends BaseActivity {
                 break;
             case R.id.ll_user_bind:
                 intent = new Intent(SettingActivity.this,PayInfoActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_invate:
-                intent = new Intent(SettingActivity.this,InvitingInfoActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_fuli:
-                intent = new Intent(SettingActivity.this,CompoundActivity.class);
                 startActivity(intent);
                 break;
             default:
