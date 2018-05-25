@@ -14,20 +14,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_margin="10dp">
+            android:orientation="vertical">
             <LinearLayout
                 android:id="@+id/ll_user_info"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:background="@color/button_bb_gray">
                 <ImageView
                     android:layout_marginTop="30dp"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/iv_head_img"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@mipmap/head"/>
+                    android:src="@mipmap/logo"/>
                 <TextView
                     android:id="@+id/tv_username"
                     android:layout_marginTop="10dp"
@@ -39,170 +39,21 @@
                     android:text="大兵哥"/>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/ll_address"
+                android:layout_marginTop="3dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <TextView
-                    android:id="@+id/tv_address"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:textSize="12dp"
-                    android:singleLine="true"
-                    android:ellipsize="middle"
-                    android:text="0x9FE0d63d64311a1B59DffbE7cA218b7A600e484c"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/code_icon"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_suan_li"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-                <TextView
-                    android:layout_weight="1"
+                android:padding="1dp">
+                <GridView
+                    android:id="@+id/gridview"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="算力"
-                    android:textSize="12dp"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/white"/>
-                <TextView
-                    android:id="@+id/tv_S_CURRENCY"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1232.111"
-                    android:textSize="12dp"
-                    android:textColor="@color/white"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@mipmap/arrow"/>
+                    android:layout_height="match_parent"
+                    android:columnWidth="90dp"
+                    android:gravity="center"
+                    android:horizontalSpacing="3dp"
+                    android:numColumns="3"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="3dp" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/line_singer"></LinearLayout>
-            <LinearLayout
-                android:id="@+id/ll_charge"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="零钱"
-                    android:textSize="12dp"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/white"/>
-                <TextView
-                    android:id="@+id/tv_D_CURRENCY"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1232.111"
-                    android:textSize="12dp"
-                    android:textColor="@color/white"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@mipmap/arrow"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/line_singer"></LinearLayout>
-            <LinearLayout
-                android:id="@+id/ll_enger"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="能量"
-                    android:textSize="12dp"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/white"/>
-                <TextView
-                    android:id="@+id/tv_W_ENERGY"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1232.111"
-                    android:textSize="12dp"
-                    android:textColor="@color/white"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@mipmap/arrow"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/line_singer"></LinearLayout>
-            <LinearLayout
-                android:id="@+id/ll_dec"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="DEC"
-                    android:textSize="12dp"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/white"/>
-                <TextView
-                    android:id="@+id/tv_QK_CURRENCY"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1232.111"
-                    android:textSize="12dp"
-                    android:textColor="@color/white"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@mipmap/arrow"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/line_singer"></LinearLayout>
-            <LinearLayout
-                android:id="@+id/ll_setting"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="设置"
-                    android:textSize="12dp"
-                    android:layout_marginLeft="5dp"
-                    android:textColor="@color/white"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@mipmap/arrow"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/line_singer"></LinearLayout>
         </LinearLayout>
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </FrameLayout>

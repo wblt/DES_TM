@@ -5,7 +5,7 @@
     android:paddingBottom="4dip"
     android:layout_width="fill_parent"
     android:gravity="center_horizontal"
-    android:background="@drawable/button_rect_white">
+    android:background="@drawable/buttom_bg_gray">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

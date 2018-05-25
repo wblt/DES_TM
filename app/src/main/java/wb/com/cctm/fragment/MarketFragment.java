@@ -80,15 +80,7 @@ public class MarketFragment extends BaseFragment {
     @BindView(R.id.top_right_text)
     TextView top_right_text;
     private Unbinder unbinder;
-    private List<Fragment> mFragmentList;
-    private List<String> mTitleList;
-    @BindView(R.id.lineChart)
-    LineChart lineChart;
-    @BindView(R.id.tv_day)
-    TextView tv_day;
-    @BindView(R.id.tv_week)
-    TextView tv_week;
-    private List<DepthBean> depthBeanList;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -109,49 +101,12 @@ public class MarketFragment extends BaseFragment {
 
     private void initview(View view) {
         top_left.setVisibility(View.INVISIBLE);
-        initLineChart();
-        depth("0","日线走势图");
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    @OnClick({R.id.tv_day,R.id.tv_week,R.id.ll_market,R.id.ll_my_buy,R.id.ll_my_sell,R.id.ll_gua_dan})
-    void viewClick(View view) {
-        List<Entry> entries;
-        Intent intent;
-        switch (view.getId()) {
-            case R.id.tv_day:
-                depth("0","日线走势图");
-                tv_day.setTextColor(getActivity().getResources().getColor(R.color.yellow));
-                tv_week.setTextColor(getActivity().getResources().getColor(R.color.white));
-                break;
-            case R.id.tv_week:
-                depth("1","周线走势图");
-                tv_day.setTextColor(getActivity().getResources().getColor(R.color.white));
-                tv_week.setTextColor(getActivity().getResources().getColor(R.color.yellow));
-                break;
-            case R.id.ll_my_buy:
-                intent = new Intent(getActivity(), MineBuyActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_my_sell:
-                intent = new Intent(getActivity(), MineSellActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_gua_dan:
-                intent = new Intent(getActivity(), GuadanActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_market:
-                intent = new Intent(getActivity(), MarketActivity.class);
-                startActivity(intent);
-                break;
-            default:
-                break;
-        }
     }
 
 
@@ -161,141 +116,7 @@ public class MarketFragment extends BaseFragment {
         super.onDestroy();
     }
 
-    private void initLineChart() {
-        final List<String> mList = new ArrayList<>();
-        mList.add("04-22");
-        mList.add("04-23");
-        mList.add("04-24");
-        mList.add("04-25");
-        mList.add("04-26");
-        mList.add("04-27");
-        mList.add("04-28");
-        //显示边界
-        lineChart.setDrawBorders(true);
-        // 轴
-        XAxis xAxis = lineChart.getXAxis();
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setLabelCount(6,false);
-        xAxis.setAxisMinimum(0);
-        xAxis.setAxisMaximum(6);
-        xAxis.setTextColor(Color.WHITE);
-        xAxis.setValueFormatter(new IAxisValueFormatter() {
-            @Override
-            public String getFormattedValue(float value, AxisBase axis) {
-                return mList.get((int) value); //mList为存有月份的集合
-            }
-        });
-        // 左右y轴
-        YAxis leftYAxis = lineChart.getAxisLeft();
-        YAxis rightYAxis = lineChart.getAxisRight();
-        leftYAxis.setAxisMinimum(0f);
-        leftYAxis.setAxisMaximum(10f);
-        rightYAxis.setAxisMinimum(0f);
-        rightYAxis.setAxisMaximum(10f);
-        rightYAxis.setTextColor(Color.WHITE); //文字颜色
-        leftYAxis.setTextColor(Color.WHITE); //文字颜色
 
-        // 描述
-        Description description = new Description();
-        description.setEnabled(false);
-        lineChart.setDescription(description);
-
-        // 手势
-        lineChart.setDragEnabled(false);
-        lineChart.setDoubleTapToZoomEnabled(false);
-        lineChart.setPinchZoom(false);
-        lineChart.setScaleEnabled(false);
-        lineChart.setDragXEnabled(false);
-        lineChart.setDragYEnabled(false);
-
-        // 标签
-        Legend legend = lineChart.getLegend();
-        legend.setTextColor(Color.WHITE);
-
-        //设置数据
-        List<Entry> entries = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
-            entries.add(new Entry(i, (float) (Math.random()) * 10));
-        }
-        //一个LineDataSet就是一条线
-        LineDataSet lineDataSet = new LineDataSet(entries, "日线走势图");
-        LineData data = new LineData(lineDataSet);
-        lineDataSet.setColor(Color.YELLOW);
-        lineDataSet.setValueTextColor(Color.YELLOW);
-        lineChart.setData(data);
-    }
-
-    /**
-     * 更新图表
-     *
-     */
-    public void notifyDataSetChanged(LineChart chart, List<Entry> values, String lable, final List<String> xList) {
-        if (xList == null) {
-            return;
-        }
-        if (values == null) {
-            return;
-        }
-        chart.getXAxis().setValueFormatter(new IAxisValueFormatter() {
-            @Override
-            public String getFormattedValue(float value, AxisBase axis) {
-                return xList.get((int) value); //mList为存有月份的集合
-            }
-        });
-        chart.invalidate();
-        LineDataSet lineDataSet = (LineDataSet) chart.getData().getDataSetByIndex(0);
-        lineDataSet.setValues(values);
-        lineDataSet.setLabel(lable);
-        chart.getData().notifyDataChanged();
-        chart.notifyDataSetChanged();
-    }
-
-    private void depth(final String type, final String title) {
-        RequestParams requestParams= FlowAPI.getRequestParams(FlowAPI.depth);
-        requestParams.addParameter("TYPE", type);
-        requestParams.addParameter("NUM", "7");
-        MXUtils.httpPost(requestParams,new CommonCallbackImp("USER - 获取k线数据",requestParams, (BaseActivity) getActivity()){
-            @Override
-            public void onSuccess(String data) {
-                super.onSuccess(data);
-                JSONObject jsonObject = JSONObject.parseObject(data);
-                String result = jsonObject.getString("code");
-                String message = jsonObject.getString("message");
-                if (result.equals(FlowAPI.SUCCEED)) {
-                    String pd = jsonObject.getString("pd");
-                    depthBeanList = JSONArray.parseArray(pd,DepthBean.class);
-                    if (depthBeanList != null) {
-                        // 值
-                        Collections.reverse(depthBeanList); // 倒序排列
-                        List<String> xlist = new ArrayList<String>();
-                        List<Entry>  entries = new ArrayList<>();
-                        for (int i = 0; i < depthBeanList.size(); i++) {
-                            DepthBean bean = depthBeanList.get(i);
-                            String sub = bean.getDEAL_TIME().substring(5);
-                            entries.add(new Entry(i, Float.valueOf(bean.getBUSINESS_PRICE())));
-                            xlist.add(sub);
-                        }
-                        String lastStr = depthBeanList.get(depthBeanList.size()-1).getDEAL_TIME();
-                        for (int i = 0;i<7-depthBeanList.size();i++) {
-                            String rtime = "00-00";
-                            if (type.equals("0")) {
-                                rtime = CommonUtils.getOldDate(lastStr,i*1+1);
-                                xlist.add(rtime.substring(5));
-                            } else {
-                                rtime =  CommonUtils.getOldDate(lastStr,i*7+7);
-                                xlist.add(rtime.substring(5));
-                            }
-
-                        }
-                        notifyDataSetChanged(lineChart,entries,title,xlist);
-                    }
-                } else {
-                    ToastUtils.toastutils(message,getActivity());
-                }
-
-            }
-        });
-    }
 
 
 

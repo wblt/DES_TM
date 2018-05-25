@@ -41,6 +41,7 @@ import wb.com.cctm.commons.utils.VersionUtil;
 import wb.com.cctm.fragment.DeliverFragment;
 import wb.com.cctm.fragment.MarketFragment;
 import wb.com.cctm.fragment.MineFragment;
+import wb.com.cctm.fragment.RecoderFragment;
 import wb.com.cctm.net.CommonCallbackImp;
 import wb.com.cctm.net.FlowAPI;
 import wb.com.cctm.net.MXUtils;
@@ -70,20 +71,24 @@ public class MainActivity extends BaseActivity {
         DeliverFragment deliverFragment = new DeliverFragment();
         MarketFragment marketFragment = new MarketFragment();
         MineFragment mineFragment = new MineFragment();
-        fragments = new Fragment[] {deliverFragment,marketFragment,mineFragment};
+        RecoderFragment recoderFragment = new RecoderFragment();
+        fragments = new Fragment[] {deliverFragment,marketFragment,recoderFragment,mineFragment};
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, deliverFragment)
                 .add(R.id.fragment_container, marketFragment)
+                .add(R.id.fragment_container, recoderFragment)
                 .add(R.id.fragment_container, mineFragment)
                 .hide(deliverFragment)
                 .hide(marketFragment)
+                .hide(recoderFragment)
                 .hide(mineFragment)
                 .show(deliverFragment)
                 .commit();
-        mTabs = new Button[5];
+        mTabs = new Button[4];
         mTabs[0] = (Button) findViewById(R.id.btn_deliver);
         mTabs[1] = (Button) findViewById(R.id.btn_market);
-        mTabs[2] = (Button) findViewById(R.id.btn_mine);
+        mTabs[2] = (Button) findViewById(R.id.btn_recoder);
+        mTabs[3] = (Button) findViewById(R.id.btn_mine);
         mTabs[0].setSelected(true);
     }
     /**
@@ -99,8 +104,11 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_market:
                 index = 1;
                 break;
-            case R.id.btn_mine:
+            case R.id.btn_recoder:
                 index = 2;
+                break;
+            case R.id.btn_mine:
+                index = 3;
                 break;
         }
         if (currentTabIndex != index) {

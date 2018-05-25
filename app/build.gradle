@@ -7,7 +7,7 @@ android {
         applicationId "wb.com.dec"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 20
+        versionCode 30
         versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true

@@ -71,24 +71,32 @@ public class MineFragment extends BaseFragment {
     @BindView(R.id.top_left)
     ImageButton top_left;
     private Unbinder unbinder;
-    @BindView(R.id.iv_head_img)
-    ImageView iv_head_img;
-    @BindView(R.id.tv_username)
-    TextView tv_username;
-    @BindView(R.id.tv_S_CURRENCY)
-    TextView tv_S_CURRENCY;
-    @BindView(R.id.tv_QK_CURRENCY)
-    TextView tv_QK_CURRENCY;
-    @BindView(R.id.tv_D_CURRENCY)
-    TextView tv_D_CURRENCY;
-    @BindView(R.id.tv_W_ENERGY)
-    TextView tv_W_ENERGY;
     private String A_CURRENCY = "";
     private String QK_CURRENCY = "";
     private String D_CURRENCY = "";
-    @BindView(R.id.tv_address)
-    TextView tv_address;
-
+    //定义图标数组
+    private int[] imageRes = {
+            R.mipmap.suanli_icon,
+            R.mipmap.qukuaidec_icon,
+            R.mipmap.lingqian_icon,
+            R.mipmap.nengliang_icon,
+            R.mipmap.shoukuan_icon,
+            R.mipmap.fuli_icon,
+            R.mipmap.yaoqing_icon,
+            R.mipmap.dingdan_icon,
+            R.mipmap.setting_icon};
+    //定义图标下方的名称数组
+    private String[] name = {
+            "算力钱包",
+            "区块DEC",
+            "零钱包",
+            "能量钱包",
+            "收款地址",
+            "复利设置",
+            "邀请好友",
+            "我的订单",
+            "设置"
+    };
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +110,7 @@ public class MineFragment extends BaseFragment {
         appendTopBody(R.layout.activity_top_icon);
         unbinder = ButterKnife.bind(this,view);
         initview(view);
+        initgradle(view);
         return view;
     }
 
@@ -113,45 +122,10 @@ public class MineFragment extends BaseFragment {
 
     private void initview(View view) {
         top_left.setVisibility(View.INVISIBLE);
+        setTopBarTitle("DEC");
     }
 
-    @OnClick({R.id.ll_charge,R.id.ll_dec,R.id.ll_suan_li,R.id.iv_head_img,R.id.ll_address,R.id.ll_setting,R.id.ll_enger})
-    void viewClick(View view) {
-        Intent intent;
-        switch (view.getId()) {
-            case R.id.iv_head_img:
-                intent = new Intent(getActivity(),UserInfoActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_address:
-                intent = new Intent(getActivity(),ReciveCodeActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_setting:
-                intent = new Intent(getActivity(),SettingActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_enger:
-                intent = new Intent(getActivity(),WalletConversionActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_suan_li:
-                intent = new Intent(getActivity(),AllReleaseActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.ll_dec:
-                intent = new Intent(getActivity(),MoveWalletActivity.class);
-                intent.putExtra("D_CURRENCY",D_CURRENCY);
-                intent.putExtra("QK_CURRENCY",QK_CURRENCY);
-                intent.putExtra("A_CURRENCY",A_CURRENCY);
-                startActivity(intent);
-                break;
-            case R.id.ll_charge:
-                intent = new Intent(getActivity(),ChargeActivity.class);
-                startActivity(intent);
-                break;
-        }
-    }
+
     @Override
     public void onDestroy() {
         unbinder.unbind();
@@ -176,24 +150,70 @@ public class MineFragment extends BaseFragment {
                     SPUtils.putString(SPUtils.nick_name,pd_obj.getString("NICK_NAME"));
                     SPUtils.putString(SPUtils.safety,pd_obj.getString("IFPAS"));
                     SPUtils.putString(SPUtils.w_energy,pd_obj.getString("W_ENERGY"));
-
                     D_CURRENCY = pd_obj.getString("D_CURRENCY");
                     A_CURRENCY = pd_obj.getString("A_CURRENCY");
                     QK_CURRENCY = pd_obj.getString("QK_CURRENCY");
-
-                    // 设置数据
-                    ImageLoader.loadCircle(SPUtils.getString(SPUtils.headimgpath),iv_head_img);
-                    tv_username.setText(SPUtils.getString(SPUtils.nick_name));
-                    tv_D_CURRENCY.setText(pd_obj.getString("D_CURRENCY"));
-                    tv_QK_CURRENCY.setText(pd_obj.getString("QK_CURRENCY"));
-                    tv_S_CURRENCY.setText(pd_obj.getString("S_CURRENCY"));
-                    tv_W_ENERGY.setText(pd_obj.getString("W_ENERGY"));
-                    tv_address.setText(SPUtils.getString(SPUtils.wallet_address));
                 } else {
                     ToastUtils.toastutils(message,getActivity());
                 }
             }
         });
     }
+
+    private void initgradle(View view) {
+        GridView gridView= (GridView) view.findViewById(R.id.gridview);//初始化
+        //生成动态数组，并且转入数据
+        ArrayList<HashMap<String ,Object>> listItemArrayList=new ArrayList<HashMap<String,Object>>();
+        for(int i=0; i<imageRes.length; i++){
+            HashMap<String, Object> map=new HashMap<String,Object>();
+            map.put("itemImage", imageRes[i]);
+            map.put("itemText", name[i]);
+            listItemArrayList.add(map);
+        }
+        //生成适配器的ImageItem 与动态数组的元素相对应
+        SimpleAdapter saImageItems = new SimpleAdapter(getActivity(),
+                listItemArrayList,//数据来源
+                R.layout.item_mine,//item的XML
+                //动态数组与ImageItem对应的子项
+                new String[]{"itemImage","itemText"},
+                //ImageItem的XML文件里面的一个ImageView,TextView ID
+                new int[]{R.id.img_shoukuan,R.id.tv_tt_title });
+        //添加并且显示
+        gridView.setAdapter(saImageItems);
+        //添加消息处理
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String title = name[position];
+                Intent intent;
+                switch (title) {
+                    case "算力钱包":
+
+                        break;
+                    case "区块DEC":
+                        break;
+                    case "零钱包":
+                        break;
+                    case "能量钱包":
+                        break;
+                    case "收款地址":
+                        break;
+                    case "复利设置":
+                        break;
+                    case "邀请好友":
+                        break;
+                    case "我的订单":
+                        break;
+                    case "设置":
+                        intent = new Intent(getActivity(),SettingActivity.class);
+                        startActivity(intent);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    }
+
 
 }
