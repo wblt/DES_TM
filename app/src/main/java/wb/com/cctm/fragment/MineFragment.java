@@ -202,9 +202,13 @@ public class MineFragment extends BaseFragment {
                 Intent intent;
                 switch (title) {
                     case "算力钱包":
-
                         break;
                     case "区块DEC":
+                        intent = new Intent(getActivity(), MoveWalletActivity.class);
+                        intent.putExtra("D_CURRENCY",D_CURRENCY);
+                        intent.putExtra("QK_CURRENCY",QK_CURRENCY);
+                        intent.putExtra("A_CURRENCY",A_CURRENCY);
+                        startActivity(intent);
                         break;
                     case "零钱包":
                         break;
@@ -223,6 +227,8 @@ public class MineFragment extends BaseFragment {
                         startActivity(intent);
                         break;
                     case "我的订单":
+                        intent = new Intent(getActivity(),MyorderActivity.class);
+                        startActivity(intent);
                         break;
                     case "设置":
                         intent = new Intent(getActivity(),SettingActivity.class);
