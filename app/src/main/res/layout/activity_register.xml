@@ -48,7 +48,6 @@
                     android:hint="请输入您的用户名(数字字母)"
                     android:textColorHint="@color/hint_text_color"
                     android:singleLine="true"
-                    android:maxLength="11"
                     android:inputType="text"
                     android:digits="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
             </LinearLayout>

@@ -73,6 +73,8 @@ public class MineFragment extends BaseFragment {
     ImageButton top_left;
     @BindView(R.id.gridview)
     GridView gridView;
+    @BindView(R.id.tv_username)
+    TextView tv_username;
     private Unbinder unbinder;
     private String A_CURRENCY = "";
     private String QK_CURRENCY = "";
@@ -121,6 +123,7 @@ public class MineFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        tv_username.setText(SPUtils.getString(SPUtils.nick_name));
         homepage();
     }
 
@@ -211,6 +214,7 @@ public class MineFragment extends BaseFragment {
                         startActivity(intent);
                         break;
                     case "零钱包":
+                        
                         break;
                     case "能量钱包":
                         break;

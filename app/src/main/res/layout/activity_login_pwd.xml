@@ -41,7 +41,6 @@
                     android:textColorHint="@color/white"
                     android:singleLine="true"
                     android:inputType="text"
-                    android:maxLength="11"
                     android:digits="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
             </LinearLayout>
             <LinearLayout
