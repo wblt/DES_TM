@@ -104,7 +104,6 @@ public class DeliverFragment extends BaseFragment {
     ImageButton top_left;
     @BindView(R.id.top_right_icon)
     ImageButton top_right_icon;
-    private int REQUEST_CODE_SCAN = 111;
     @BindView(R.id.lineChart)
     LineChart lineChart;
     @BindView(R.id.tv_day)
@@ -171,30 +170,6 @@ public class DeliverFragment extends BaseFragment {
         top_left.setVisibility(View.INVISIBLE);
         initLineChart();
         depth("0","日线走势图");
-//        top_right_icon.setImageResource(R.mipmap.scan);
-//        top_right_icon.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (ContextCompat.checkSelfPermission(getActivity(),
-//                        Manifest.permission.CAMERA)
-//                        != PackageManager.PERMISSION_GRANTED) {
-//                    //权限还没有授予，需要在这里写申请权限的代码
-//                    requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_CODE_SCAN);
-//                } else {
-//                    Intent intent = new Intent(getActivity(), CaptureActivity.class);
-//                                /*ZxingConfig是配置类  可以设置是否显示底部布局，闪光灯，相册，是否播放提示音  震动等动能
-//                                * 也可以不传这个参数
-//                                * 不传的话  默认都为默认不震动  其他都为true
-//                                * */
-//                    ZxingConfig config = new ZxingConfig();
-//                    config.setPlayBeep(true);
-//                    config.setShake(true);
-//                    config.setShowbottomLayout(false);
-//                    intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
-//                    startActivityForResult(intent, REQUEST_CODE_SCAN);
-//                }
-//            }
-//        });
     }
 
     @Override
@@ -203,30 +178,6 @@ public class DeliverFragment extends BaseFragment {
         super.onDestroy();
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CODE_SCAN) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission Granted准许
-                Toast.makeText(getActivity(),"已获得授权！",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), CaptureActivity.class);
-                                /*ZxingConfig是配置类  可以设置是否显示底部布局，闪光灯，相册，是否播放提示音  震动等动能
-                                * 也可以不传这个参数
-                                * 不传的话  默认都为默认不震动  其他都为true
-                                * */
-                ZxingConfig config = new ZxingConfig();
-                config.setPlayBeep(true);
-                config.setShake(true);
-                config.setShowbottomLayout(false);
-                intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
-                startActivityForResult(intent, REQUEST_CODE_SCAN);
-            } else {
-                // Permission Denied拒绝
-                Toast.makeText(getActivity(),"未获得授权！",Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
 
     private void initLineChart() {
         final List<String> mList = new ArrayList<>();

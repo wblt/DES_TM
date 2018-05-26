@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
@@ -36,6 +37,9 @@ public class WalletRecordActivity extends BaseActivity {
     TextView tv_jd;
     @BindView(R.id.top_right_icon)
     ImageButton top_right_icon;
+    @BindView(R.id.ll_all)
+    LinearLayout ll_all;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,20 +49,18 @@ public class WalletRecordActivity extends BaseActivity {
         setTopLeftDefultListener();
         ButterKnife.bind(this);
         initview();
+        release();
     }
 
     private void initview() {
-        top_right_icon.setImageResource(R.mipmap.recode_icon);
-        top_right_icon.setOnClickListener(new View.OnClickListener() {
+        ll_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(WalletRecordActivity.this,AllReleaseActivity.class);
                 startActivity(intent);
             }
         });
-        release();
     }
-
 
     private void release() {
         RequestParams requestParams= FlowAPI.getRequestParams(FlowAPI.release);
