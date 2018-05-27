@@ -9,7 +9,6 @@ android {
 android {
     compileSdkVersion 23
     buildToolsVersion '26.0.2'
-    resourcePrefix "imagewatcher__"
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
