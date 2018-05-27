@@ -29,7 +29,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="银行名称"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:id="@+id/et_bank_name"
@@ -40,7 +40,7 @@
                     android:textSize="10dp"
                     android:textColor="@color/white"
                     android:hint="请输入您的银行名称"
-                    android:textColorHint="@color/grey"
+                    android:textColorHint="@color/white"
                     android:background="@null"
                     android:inputType="text"
                     android:singleLine="true"/>/>
@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="银行账号"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:id="@+id/et_bank_number"
@@ -71,7 +71,7 @@
                     android:textSize="10dp"
                     android:textColor="@color/white"
                     android:hint="请输入您的银行账号"
-                    android:textColorHint="@color/grey"
+                    android:textColorHint="@color/white"
                     android:background="@null"
                     android:digits="1234567890"
                     android:inputType="number"
@@ -92,7 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="开户名"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:id="@+id/et_bank_user_name"
@@ -103,7 +103,7 @@
                     android:textSize="10dp"
                     android:textColor="@color/white"
                     android:hint="请输入您的开户姓名"
-                    android:textColorHint="@color/grey"
+                    android:textColorHint="@color/white"
                     android:background="@null"
                     android:inputType="text"
                     android:singleLine="true"/>
@@ -123,7 +123,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="开户支行"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:id="@+id/et_bank_addr_name"
@@ -134,7 +134,7 @@
                     android:textSize="10dp"
                     android:textColor="@color/white"
                     android:hint="请输入您的开户支行名称"
-                    android:textColorHint="@color/grey"
+                    android:textColorHint="@color/white"
                     android:background="@null"
                     android:inputType="text"
                     android:singleLine="true"/>
@@ -160,7 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="微信号"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:id="@+id/et_wechat_number"
@@ -171,7 +171,7 @@
                     android:textSize="10dp"
                     android:textColor="@color/white"
                     android:hint="请输入您的微信号"
-                    android:textColorHint="@color/grey"
+                    android:textColorHint="@color/white"
                     android:background="@null"
                     android:digits="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:inputType="text"
@@ -192,7 +192,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="支付宝账号"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:id="@+id/et_zhifuba_number"
@@ -203,7 +203,7 @@
                     android:textSize="10dp"
                     android:textColor="@color/white"
                     android:hint="请输入您的支付宝账号"
-                    android:textColorHint="@color/grey"
+                    android:textColorHint="@color/white"
                     android:background="@null"
                     android:inputType="text"
                     android:singleLine="true"/>
@@ -219,7 +219,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="提交"
-            android:textSize="12dp"
+            android:textSize="13dp"
             android:textColor="@color/white"
             android:background="@drawable/buttom_bg_gray"/>
         <TextView

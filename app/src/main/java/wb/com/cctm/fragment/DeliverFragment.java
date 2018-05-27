@@ -82,6 +82,7 @@ import wb.com.cctm.base.BaseFragment;
 import wb.com.cctm.base.OnItemClickListener;
 import wb.com.cctm.bean.DepthBean;
 import wb.com.cctm.bean.NoticeBean;
+import wb.com.cctm.bean.ReleaseDepthBean;
 import wb.com.cctm.commons.step.UpdateUiCallBack;
 import wb.com.cctm.commons.step.service.StepService;
 import wb.com.cctm.commons.step.utils.SharedPreferencesUtils;
@@ -106,11 +107,15 @@ public class DeliverFragment extends BaseFragment {
     ImageButton top_right_icon;
     @BindView(R.id.lineChart)
     LineChart lineChart;
+    @BindView(R.id.lineChart2)
+    LineChart lineChart2;
     @BindView(R.id.tv_day)
     TextView tv_day;
     @BindView(R.id.tv_week)
     TextView tv_week;
     private List<DepthBean> depthBeanList;
+    private List<ReleaseDepthBean> releaseDepthBeanList;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -122,7 +127,7 @@ public class DeliverFragment extends BaseFragment {
         View view = super.onCreateView(inflater,container,savedInstanceState);
         appendMainBody(this,R.layout.fragment_deliver);
         appendTopBody(R.layout.activity_top_icon);
-        setTopBarTitle("释放");
+        setTopBarTitle("首页");
         unbinder = ButterKnife.bind(this,view);
         initview(view);
         return view;
@@ -169,7 +174,9 @@ public class DeliverFragment extends BaseFragment {
     private void initview(View view) {
         top_left.setVisibility(View.INVISIBLE);
         initLineChart();
+        initLineChart2();
         depth("0","日线走势图");
+        releaseDepth("0","算力释放报表");
     }
 
     @Override
@@ -196,7 +203,7 @@ public class DeliverFragment extends BaseFragment {
         xAxis.setLabelCount(6,false);
         xAxis.setAxisMinimum(0);
         xAxis.setAxisMaximum(6);
-        xAxis.setTextColor(Color.WHITE);
+        xAxis.setTextColor(getResources().getColor(R.color.white));
         xAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
@@ -210,8 +217,8 @@ public class DeliverFragment extends BaseFragment {
         leftYAxis.setAxisMaximum(10f);
         rightYAxis.setAxisMinimum(0f);
         rightYAxis.setAxisMaximum(10f);
-        rightYAxis.setTextColor(Color.WHITE); //文字颜色
-        leftYAxis.setTextColor(Color.WHITE); //文字颜色
+        rightYAxis.setTextColor(getResources().getColor(R.color.white)); //文字颜色
+        leftYAxis.setTextColor(getResources().getColor(R.color.white)); //文字颜色
 
         // 描述
         Description description = new Description();
@@ -228,7 +235,7 @@ public class DeliverFragment extends BaseFragment {
 
         // 标签
         Legend legend = lineChart.getLegend();
-        legend.setTextColor(Color.WHITE);
+        legend.setTextColor(getResources().getColor(R.color.white));
 
         //设置数据
         List<Entry> entries = new ArrayList<>();
@@ -238,9 +245,73 @@ public class DeliverFragment extends BaseFragment {
         //一个LineDataSet就是一条线
         LineDataSet lineDataSet = new LineDataSet(entries, "日线走势图");
         LineData data = new LineData(lineDataSet);
-        lineDataSet.setColor(Color.YELLOW);
-        lineDataSet.setValueTextColor(Color.YELLOW);
+        lineDataSet.setColor(getResources().getColor(R.color.white));
+        lineDataSet.setValueTextColor(getResources().getColor(R.color.white));
         lineChart.setData(data);
+    }
+
+    private void initLineChart2() {
+        final List<String> mList = new ArrayList<>();
+        mList.add("04-22");
+        mList.add("04-23");
+        mList.add("04-24");
+        mList.add("04-25");
+        mList.add("04-26");
+        mList.add("04-27");
+        mList.add("04-28");
+        //显示边界
+        lineChart2.setDrawBorders(true);
+        // 轴
+        XAxis xAxis = lineChart2.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setLabelCount(6,false);
+        xAxis.setAxisMinimum(0);
+        xAxis.setAxisMaximum(6);
+        xAxis.setTextColor(getResources().getColor(R.color.white));
+        xAxis.setValueFormatter(new IAxisValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return mList.get((int) value); //mList为存有月份的集合
+            }
+        });
+        // 左右y轴
+        YAxis leftYAxis = lineChart2.getAxisLeft();
+        YAxis rightYAxis = lineChart2.getAxisRight();
+        leftYAxis.setAxisMinimum(0f);
+        leftYAxis.setAxisMaximum(1000f);
+        rightYAxis.setAxisMinimum(0f);
+        rightYAxis.setAxisMaximum(1000f);
+        rightYAxis.setTextColor(getResources().getColor(R.color.white)); //文字颜色
+        leftYAxis.setTextColor(getResources().getColor(R.color.white)); //文字颜色
+
+        // 描述
+        Description description = new Description();
+        description.setEnabled(false);
+        lineChart2.setDescription(description);
+
+        // 手势
+        lineChart2.setDragEnabled(false);
+        lineChart2.setDoubleTapToZoomEnabled(false);
+        lineChart2.setPinchZoom(false);
+        lineChart2.setScaleEnabled(false);
+        lineChart2.setDragXEnabled(false);
+        lineChart2.setDragYEnabled(false);
+
+        // 标签
+        Legend legend = lineChart2.getLegend();
+        legend.setTextColor(getResources().getColor(R.color.white));
+
+        //设置数据
+        List<Entry> entries = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            entries.add(new Entry(i, (float) (Math.random()) * 10));
+        }
+        //一个LineDataSet就是一条线
+        LineDataSet lineDataSet = new LineDataSet(entries, "算力释放报表");
+        LineData data = new LineData(lineDataSet);
+        lineDataSet.setColor(getResources().getColor(R.color.white));
+        lineDataSet.setValueTextColor(getResources().getColor(R.color.white));
+        lineChart2.setData(data);
     }
 
     /**
@@ -306,6 +377,51 @@ public class DeliverFragment extends BaseFragment {
 
                         }
                         notifyDataSetChanged(lineChart,entries,title,xlist);
+                    }
+                } else {
+                    ToastUtils.toastutils(message,getActivity());
+                }
+
+            }
+        });
+    }
+
+    private void releaseDepth(final String type, final String title) {
+        RequestParams requestParams= FlowAPI.getRequestParams(FlowAPI.releaseDepth);
+        requestParams.addParameter("USER_NAME", SPUtils.getString(SPUtils.username));
+        MXUtils.httpPost(requestParams,new CommonCallbackImp("USER - 获取释放k线数据",requestParams, (BaseActivity) getActivity()){
+            @Override
+            public void onSuccess(String data) {
+                super.onSuccess(data);
+                JSONObject jsonObject = JSONObject.parseObject(data);
+                String result = jsonObject.getString("code");
+                String message = jsonObject.getString("message");
+                if (result.equals(FlowAPI.SUCCEED)) {
+                    String pd = jsonObject.getString("pd");
+                    releaseDepthBeanList = JSONArray.parseArray(pd,ReleaseDepthBean.class);
+                    if (releaseDepthBeanList != null && releaseDepthBeanList.size()>0) {
+                        // 值
+                        Collections.reverse(releaseDepthBeanList); // 倒序排列
+                        List<String> xlist = new ArrayList<String>();
+                        List<Entry>  entries = new ArrayList<>();
+                        for (int i = 0; i < releaseDepthBeanList.size(); i++) {
+                            ReleaseDepthBean bean = releaseDepthBeanList.get(i);
+                            String sub = bean.getCREATE_TIME().substring(5);
+                            entries.add(new Entry(i, Float.valueOf(bean.getCALCULATE_MONEY())));
+                            xlist.add(sub);
+                        }
+                        String lastStr = releaseDepthBeanList.get(releaseDepthBeanList.size()-1).getCREATE_TIME();
+                        for (int i = 0;i<7-releaseDepthBeanList.size();i++) {
+                            String rtime = "00-00";
+                            if (type.equals("0")) {
+                                rtime = CommonUtils.getOldDate(lastStr,i*1+1);
+                                xlist.add(rtime.substring(5));
+                            } else {
+                                rtime =  CommonUtils.getOldDate(lastStr,i*7+7);
+                                xlist.add(rtime.substring(5));
+                            }
+                        }
+                        notifyDataSetChanged(lineChart2,entries,title,xlist);
                     }
                 } else {
                     ToastUtils.toastutils(message,getActivity());

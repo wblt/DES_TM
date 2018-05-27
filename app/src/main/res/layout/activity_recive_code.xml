@@ -44,7 +44,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:text="大兵哥"/>
                     <TextView
                         android:id="@+id/tv_address"
@@ -52,7 +52,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:text=""
                         android:lines="2"/>
                     <TextView
@@ -61,7 +61,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/red"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:text="复制"
                         android:gravity="end"/>
                 </LinearLayout>

@@ -39,9 +39,9 @@
                         android:paddingBottom="2dip"
                         android:paddingTop="7dip"
                         android:scaleType="matrix"
-                        android:text=""
+                        android:text="首页"
                         android:textColor="@drawable/main_botton_text_selector"
-                        android:textSize="12sp" />
+                        android:textSize="13dp" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/btn_container_address_list"
@@ -60,7 +60,7 @@
                         android:scaleType="matrix"
                         android:text="交易"
                         android:textColor="@drawable/main_botton_text_selector"
-                        android:textSize="12sp" />
+                        android:textSize="13dp" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/btn_container_recoder"
@@ -79,7 +79,7 @@
                         android:scaleType="matrix"
                         android:text="记录"
                         android:textColor="@drawable/main_botton_text_selector"
-                        android:textSize="12sp" />
+                        android:textSize="13dp" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/btn_container_mine"
@@ -98,7 +98,7 @@
                         android:scaleType="matrix"
                         android:text="DEC"
                         android:textColor="@drawable/main_botton_text_selector"
-                        android:textSize="12sp" />
+                        android:textSize="13dp" />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>

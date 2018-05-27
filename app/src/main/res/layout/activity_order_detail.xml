@@ -73,14 +73,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="订单ID："
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:id="@+id/tv_id"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/color_green"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:text="12"/>
                     </LinearLayout>
                     <LinearLayout
@@ -92,14 +92,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="卖方用户名："
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:id="@+id/tv_order_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/color_green"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:text="1.23" />
                     </LinearLayout>
                 </LinearLayout>
@@ -116,14 +116,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="数量："
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:id="@+id/tv_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/color_green"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:text="1.23"/>
                     </LinearLayout>
                     <LinearLayout
@@ -135,14 +135,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="价格："
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:id="@+id/tv_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/color_green"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:text="1.23"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -160,14 +160,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="总计："
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:id="@+id/tv_all"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/color_green"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:text="1.23"/>
                     </LinearLayout>
                     <LinearLayout
@@ -179,14 +179,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="订单状态："
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:id="@+id/tv_status"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/color_green"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:text="待付款"/>
                     </LinearLayout>
 
@@ -200,14 +200,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="订单时间："
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                     <TextView
                         android:id="@+id/tv_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/color_green"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:text="2018-09-12 12:22:22"/>
                 </LinearLayout>
             </LinearLayout>
@@ -234,14 +234,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="开户名："
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:id="@+id/tv_bank_user_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/color_green"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:text="1.23"/>
                     </LinearLayout>
                     <LinearLayout
@@ -253,14 +253,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="银行名称："
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:id="@+id/tv_bank_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/color_green"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:text="1.23"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -273,14 +273,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="支行名称："
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                     <TextView
                         android:id="@+id/tv_bank_addr_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/color_green"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:text="1.23"/>
                 </LinearLayout>
                 <LinearLayout
@@ -292,14 +292,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="银行账号："
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                     <TextView
                         android:id="@+id/tv_bank_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/color_green"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:text="1.23"/>
                 </LinearLayout>
 
@@ -317,14 +317,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="支付宝账号："
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:id="@+id/tv_zhifu_bao"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/color_green"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:text="1.23"/>
                     </LinearLayout>
                     <LinearLayout
@@ -336,14 +336,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="微信账号："
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:id="@+id/tv_wechat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/color_green"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:text="1.23"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -370,7 +370,7 @@
                         android:layout_height="wrap_content"
                         android:text="付款凭证:"
                         android:textColor="@color/white"
-                        android:textSize="12dp"/>
+                        android:textSize="13dp"/>
                     <ImageView
                         android:id="@+id/iv_img"
                         android:layout_marginLeft="10dp"
@@ -402,7 +402,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:text="确认付款"
-                android:textSize="12dp"
+                android:textSize="13dp"
                 android:textColor="@color/white"
                 android:background="@drawable/buttom_bg_gray"/>
             <Button
@@ -414,7 +414,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:text="取消订单"
-                android:textSize="12dp"
+                android:textSize="13dp"
                 android:textColor="@color/red"
                 android:background="@drawable/buttom_bg_gray"/>
         </LinearLayout>

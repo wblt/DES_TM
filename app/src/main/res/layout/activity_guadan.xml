@@ -33,14 +33,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="指导价"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                     <TextView
                         android:id="@+id/tv_zhidao_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1.232"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/red"/>
                 </LinearLayout>
             </LinearLayout>
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="卖单价格"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:layout_marginLeft="5dp"
@@ -69,7 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColorHint="@color/hint_text_color"
                     android:hint="请输入卖单价格"
                     android:background="@null"
@@ -99,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="卖单数量"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:layout_marginLeft="5dp"
@@ -109,7 +109,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:background="@null"
                     android:hint="请输入挂卖数量(整数且1的倍数)"
                     android:textColorHint="@color/hint_text_color"
@@ -139,14 +139,14 @@
                 android:layout_height="wrap_content"
                 android:text="总价：0"
                 android:textColor="@color/white"
-                android:textSize="12dp"/>
+                android:textSize="13dp"/>
             <TextView
                 android:id="@+id/tv_shouxu_fei"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="手续费：0"
                 android:textColor="@color/white"
-                android:textSize="12dp"/>
+                android:textSize="13dp"/>
         </LinearLayout>
 
         <Button
@@ -157,7 +157,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="提交"
-            android:textSize="12dp"
+            android:textSize="13dp"
             android:textColor="@color/white"
             android:background="@drawable/buttom_bg_gray"/>
 
@@ -171,20 +171,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="12dp"
+                android:textSize="13dp"
                 android:text="本次可挂卖最多"/>
             <TextView
                 android:id="@+id/tv_gua_sell_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/main_bottom_text_color_selector"
-                android:textSize="12dp"
+                android:textSize="13dp"
                 android:text="5000"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="12dp"
+                android:textSize="13dp"
                 android:text="个"/>
         </LinearLayout>
 

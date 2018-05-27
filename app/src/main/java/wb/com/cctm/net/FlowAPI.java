@@ -141,4 +141,8 @@ public class FlowAPI {
 
     // INDEX - 版本号
     public static String version = SERVER_IP + "/app/index/version";
+
+    // MARKET - 释放K线
+    public static String releaseDepth = SERVER_IP + "/app/market/releaseDepth";
+
 }

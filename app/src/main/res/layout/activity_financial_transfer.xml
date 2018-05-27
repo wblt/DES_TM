@@ -34,14 +34,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0.00"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/red"/>
                     <TextView
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="当前区块DEC"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
                 <LinearLayout
@@ -55,14 +55,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0.00"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/red"/>
                     <TextView
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="当前能量"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
 
                 </LinearLayout>
@@ -77,14 +77,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0.00"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/red"/>
                     <TextView
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="当前零钱"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
             </LinearLayout>
@@ -103,7 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="钱包地址"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:layout_marginLeft="5dp"
@@ -112,9 +112,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:hint="请输入转入钱包地址"
-                    android:textColorHint="@color/grey"
+                    android:textColorHint="@color/hint_text_color"
                     android:digits="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:maxLength="64"
                     android:background="@null"/>
@@ -133,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="数量"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:id="@+id/et_number"
@@ -142,10 +142,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:background="@null"
                     android:hint="请输入转入数量(整数且1的倍数)"
-                    android:textColorHint="@color/grey"
+                    android:textColorHint="@color/hint_text_color"
                     android:digits="1234567890"
                     android:inputType="number"
                     android:singleLine="true"/>
@@ -166,7 +166,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="转账类型"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <TextView
                     android:layout_weight="1"
@@ -175,8 +175,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="发送零钱"
-                    android:textColor="@color/grey"
-                    android:textSize="12dp"/>
+                    android:textColor="@color/hint_text_color"
+                    android:textSize="13dp"/>
                 <ImageView
                     android:layout_gravity="center_vertical"
                     android:layout_width="20dp"
@@ -193,7 +193,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="提交"
-            android:textSize="12dp"
+            android:textSize="13dp"
             android:textColor="@color/white"
             android:background="@drawable/buttom_bg_gray"/>
     </LinearLayout>

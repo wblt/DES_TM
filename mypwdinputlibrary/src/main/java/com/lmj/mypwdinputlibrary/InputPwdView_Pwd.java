@@ -14,9 +14,9 @@ public class InputPwdView_Pwd extends TextView {
     private int passwordLength = 6;
     private int borderWidth = 8;
     private int borderRadius = 6; //边框四个角的角度px
-    private int borderColor = 0xffffffff;
+    private int borderColor = 0xffCBAE86;
     private int passwordWidth = 12;
-    private int passwordColor = 0xffffffff;
+    private int passwordColor = 0xffCBAE86;
     private int defaultSplitLineWidth = 3;
 
     private Paint borderPaint;

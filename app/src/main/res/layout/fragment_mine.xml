@@ -34,9 +34,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:gravity="center"
                     android:text="大兵哥"/>
+                <TextView
+                    android:id="@+id/tv_ip"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="13dp"
+                    android:gravity="center"
+                    android:text="登录IP 192.168.0.139"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_marginTop="3dp"

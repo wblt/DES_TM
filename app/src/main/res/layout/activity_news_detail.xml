@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="全球区块链交流峰会●杭州站已圆满落幕"
             android:textColor="@color/main_bottom_text_color_selector"
-            android:textSize="14dp"/>
+            android:textSize="13dp"/>
         <LinearLayout
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="尊敬的DEC会员:"
             android:textColor="@color/white"
-            android:textSize="12dp"/>
+            android:textSize="13dp"/>
         <TextView
             android:id="@+id/tv_content"
             android:layout_margin="10dp"
@@ -41,7 +41,7 @@
             定将此额度回调至5000，此举符合平台的可持续化运营策略，也契合绝大多数会员朋友的实际交易需求。
             本项更新事宜将于公告发布时即刻生效，对此给您造成的不便之处，敬请谅解! 我们也将秉承用户至上的运营理念为您提供更优质的服务体验。"
             android:textColor="@color/white"
-            android:textSize="12dp"
+            android:textSize="13dp"
             android:lineSpacingExtra="5dp"/>
         <TextView
             android:layout_marginTop="15dp"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:text="DEC运营中心"
             android:textColor="@color/white"
-            android:textSize="12dp"
+            android:textSize="13dp"
             android:gravity="end"/>
         <TextView
             android:id="@+id/tv_time"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:text="2018年4月20 13:23:34"
             android:textColor="@color/white"
-            android:textSize="12dp"
+            android:textSize="13dp"
             android:gravity="end"/>
     </LinearLayout>
 </LinearLayout>

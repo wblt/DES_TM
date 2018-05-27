@@ -34,14 +34,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0.00"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/red"/>
                     <TextView
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="当前能量"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
@@ -56,14 +56,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0.00"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/red"/>
                     <TextView
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="可用算力"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
@@ -78,14 +78,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0.00"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/red"/>
                     <TextView
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="当前区块DEC"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
             </LinearLayout>
@@ -105,7 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="兑换数量"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:id="@+id/et_number"
@@ -114,10 +114,10 @@
                     android:layout_marginRight="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"
                     android:hint="请输入兑换数量(整数且1的倍数)"
-                    android:textColorHint="@color/grey"
+                    android:textColorHint="@color/white"
                     android:background="@null"
                     android:digits="1234567890"
                     android:inputType="number"
@@ -133,7 +133,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="提交"
-            android:textSize="12dp"
+            android:textSize="13dp"
             android:textColor="@color/white"
             android:background="@drawable/buttom_bg_gray"/>
         <LinearLayout
@@ -146,14 +146,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="比率:"
-                android:textSize="12dp"
+                android:textSize="13dp"
                 android:textColor="@color/white"/>
             <TextView
                 android:id="@+id/tv_w_bl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0.00"
-                android:textSize="12dp"
+                android:textSize="13dp"
                 android:textColor="@color/white"/>
         </LinearLayout>
 

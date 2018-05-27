@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="APP版本更新"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/main_bottom_text_color_selector"/>
                 <TextView
                     android:gravity="start"

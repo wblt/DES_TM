@@ -34,14 +34,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0.00"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/red"/>
                     <TextView
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="当前区块DEC"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
@@ -56,14 +56,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0.00"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/red"/>
                     <TextView
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="当前零钱"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
             </LinearLayout>
@@ -88,7 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="转入金额"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:id="@+id/et_number"
@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColorHint="@color/hint_text_color"
                     android:hint="请输入1~5000且1的倍数"
                     android:background="@null"
@@ -121,7 +121,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="验证码"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"/>
                 <EditText
                     android:layout_weight="1"
@@ -131,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/hint_text_color"
                     android:hint="请输入右侧验证码"
@@ -155,7 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="提交"
-            android:textSize="12dp"
+            android:textSize="13dp"
             android:textColor="@color/white"
             android:background="@drawable/buttom_bg_gray"/>
         <LinearLayout
@@ -168,20 +168,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="12dp"
+                android:textSize="13dp"
                 android:text="本次可转入最多"/>
             <TextView
                 android:id="@+id/tv_acuur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/main_bottom_text_color_selector"
-                android:textSize="12dp"
+                android:textSize="13dp"
                 android:text="5000.00"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="12dp"
+                android:textSize="13dp"
                 android:text="至DEC钱包"/>
         </LinearLayout>
     </LinearLayout>

@@ -36,7 +36,7 @@
                     android:layout_marginLeft="10dp">
                     <TextView
                         android:textColor="@color/white"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:text="左区业绩"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -44,7 +44,7 @@
                         android:layout_marginLeft="5dp"
                         android:id="@+id/tv_l_total"
                         android:textColor="@color/red"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:text="20"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -57,7 +57,7 @@
                     android:orientation="horizontal">
                     <TextView
                         android:textColor="@color/main_bottom_text_color_selector"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:text="右区业绩"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -65,7 +65,7 @@
                         android:layout_marginLeft="5dp"
                         android:id="@+id/tv_r_total"
                         android:textColor="@color/red"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:text="40"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -79,7 +79,7 @@
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text="1.左区邀请地址,点击链接即可复制"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -87,7 +87,7 @@
                     android:gravity="center"
                     android:id="@+id/tv_left_addr"
                     android:textColor="@color/main_bottom_text_color_selector"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text=""
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -100,7 +100,7 @@
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text="2.右区邀请地址，点击链接即可复制"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -108,7 +108,7 @@
                     android:gravity="center"
                     android:id="@+id/tv_right_addr"
                     android:textColor="@color/main_bottom_text_color_selector"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text=""
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -121,7 +121,7 @@
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text="3.APP下载地址，点击链接即可复制"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -129,7 +129,7 @@
                     android:gravity="center"
                     android:id="@+id/tv_app_addr"
                     android:textColor="@color/main_bottom_text_color_selector"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text=""
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -159,7 +159,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="已邀请好友"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                     <TextView
                         android:id="@+id/tv_count"
@@ -167,14 +167,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/red"
-                        android:textSize="14dp"
+                        android:textSize="13dp"
                         android:text="0"/>
                     <TextView
                         android:layout_marginLeft="2dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="人"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
                 <ImageView

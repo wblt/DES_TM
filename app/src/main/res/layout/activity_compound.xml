@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="自动复利"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"
                     />
                 <ImageView
@@ -57,7 +57,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="停止复利"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"
                     />
                 <ImageView
@@ -80,21 +80,21 @@
                 android:layout_height="wrap_content"
                 android:text="开启自动复利:"
                 android:textColor="@color/main_bottom_text_color_selector"
-                android:textSize="12dp"/>
+                android:textSize="13dp"/>
             <TextView
                 android:layout_marginTop="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="每天系统结算算力以后，"
                 android:textColor="@color/white"
-                android:textSize="12dp"/>
+                android:textSize="13dp"/>
             <TextView
                 android:layout_marginTop="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="会自动将释放钱包中的余额转入算力钱包来进行循环复利"
                 android:textColor="@color/white"
-                android:textSize="12dp"/>
+                android:textSize="13dp"/>
         </LinearLayout>
         <Button
             android:layout_marginLeft="20dp"
@@ -103,7 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="提交"
-            android:textSize="12dp"
+            android:textSize="13dp"
             android:textColor="@color/white"
             android:background="@drawable/buttom_bg_gray"/>
     </LinearLayout>

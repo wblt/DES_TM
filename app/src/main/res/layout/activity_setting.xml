@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="手机号码"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"/>
                 <ImageView
@@ -54,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="登录密码"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"/>
                 <ImageView
@@ -84,7 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="安全密码"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"/>
                 <ImageView
@@ -108,7 +108,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="支付信息"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"/>
                 <ImageView
@@ -137,7 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="系统版本"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"/>
                 <TextView
@@ -145,7 +145,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1.0.4"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"/>
             </LinearLayout>
@@ -159,7 +159,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="安全退出"
-            android:textSize="12dp"
+            android:textSize="13dp"
             android:textColor="@color/red"
             android:background="@drawable/buttom_bg_gray"/>
     </LinearLayout>

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="wb.com.cctm.fragment.DeliverFragment">
+    tools:context="wb.com.cctm.fragment.DeliverFragment"
+    android:background="@mipmap/main_tt_bg">
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/sm_refreshLayout"
         android:layout_width="match_parent"
@@ -43,9 +44,9 @@
                             android:layout_marginTop="15dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="财务转账"
+                            android:text="发送"
                             android:textColor="@color/white"
-                            android:textSize="12dp"/>
+                            android:textSize="13dp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/ll_address"
@@ -67,7 +68,7 @@
                             android:layout_height="wrap_content"
                             android:text="地址"
                             android:textColor="@color/white"
-                            android:textSize="12dp"/>
+                            android:textSize="13dp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/ll_dui"
@@ -89,31 +90,33 @@
                             android:layout_height="wrap_content"
                             android:text="能量兑换"
                             android:textColor="@color/white"
-                            android:textSize="12dp"/>
+                            android:textSize="13dp"/>
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/tv_day"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="日线"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/yellow"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         />
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/tv_week"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="周线"
-                        android:textSize="12dp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"/>
@@ -124,8 +127,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="单位¥"
-                        android:textColor="#FFFFFF"
-                        android:textSize="12sp" />
+                        android:textColor="@color/white"
+                        android:textSize="13dp" />
                 </LinearLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -134,7 +137,16 @@
                     <com.github.mikephil.charting.charts.LineChart
                         android:id="@+id/lineChart"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"/>
+                        android:layout_height="280dp"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/lineChart2"
+                        android:layout_width="match_parent"
+                        android:layout_height="280dp"/>
                 </RelativeLayout>
             </LinearLayout>
         </ScrollView>

@@ -22,13 +22,13 @@
         android:layout_centerInParent="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="15dp"
-        android:textSize="14dp"
-        android:textColor="@color/main_bottom_text_color_selector"/>
+        android:textSize="13dp"
+        android:textColor="@color/white"/>
     <View
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/main_bottom_text_color_selector"
+        android:background="@color/white"
         android:layout_below="@id/MyPwdInput_close"
         android:layout_marginTop="15dp"
         />
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textSize="12dp"
+        android:textSize="13dp"
         android:text="忘记密码?"
         android:textColor="@color/myInputPwdBase_blue"
         android:layout_below="@id/MyPwdInput_inputpwd"
@@ -66,7 +66,6 @@
         android:paddingBottom="10dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="@drawable/rect_golden"
         android:layout_marginTop="20dp">
         <ImageView
             android:layout_gravity="center"
@@ -77,9 +76,9 @@
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/main_bottom_text_color_selector"
-            android:textSize="12dp"
-            android:text="CCTM安全键盘"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            android:text="DEC安全键盘"
             />
     </LinearLayout>
 
@@ -91,7 +90,7 @@
         android:layout_height="wrap_content"
         android:divider="#ccc"
         android:dividerHeight="1dp"
-        android:background="@color/main_bottom_text_color_selector"
+        android:background="@color/white"
         android:horizontalSpacing="1dp"
         android:verticalSpacing="1dp"
         android:padding="1dp"

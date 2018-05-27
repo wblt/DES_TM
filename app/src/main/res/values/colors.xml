@@ -7,7 +7,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000000</color>
     <color name="transparent_color">#00000000</color>
-    <color name="white">#FFFFFF</color>
+    <color name="white">#CBAE86</color>
     <color name="wallet_address_text_color">#FFFFFF</color>
     <color name="wallet_bg_blue">#1bb0d6</color>
     <color name="me_bg_blue">#2f9dd1</color>
@@ -20,8 +20,8 @@
     <color name="market_increase_text_bg">#e53935</color>
     <color name="market_drop_text_bg">#52d869</color>
     <color name="asset_item_color">#329fc9</color>
-    <color name="circular_bead_blue">#319FF4</color>
-    <color name="hint_text_color">#cccccc</color>
+    <color name="circular_bead_blue">#CBAE86</color>
+    <color name="hint_text_color">#CBAE86</color>
     <!--zxing-->
     <color name="contents_text">#000000</color>
     <color name="encode_view">#FFFFFF</color>
@@ -35,14 +35,14 @@
     <color name="viewfinder_laser">#cc0000</color> <!-- Android standard ICS color -->
     <color name="viewfinder_mask">#50000000</color>
     <color name="main_botton_text_color">#FFFFFF</color>
-    <color name="main_bottom_text_color_selector">#FFFFFF</color>
+    <color name="main_bottom_text_color_selector">#848484</color>
     <color name="yellow">#fd9c06</color>
-    <color name="red">#EE2C2C</color>
+    <color name="red">#CBAE86</color>
     <color name="grey">#BDBDBD</color>
     <color name="color_one">#FDE4BB</color>
     <color name="color_two">#FCD2A1</color>
     <color name="color_three">#EF8273</color>
-    <color name="color_green">#31AA28</color>
+    <color name="color_green">#CBAE86</color>
     <color name="line_singer">#343235</color>
     <color name="button_bg_gray">#848484</color>
     <color name="button_bb_gray">#1E1E1E</color>

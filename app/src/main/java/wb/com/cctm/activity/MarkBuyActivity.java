@@ -1,12 +1,14 @@
 package wb.com.cctm.activity;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -39,6 +41,8 @@ public class MarkBuyActivity extends BaseActivity {
     EditText et_buy_number;
     @BindView(R.id.tv_sum_price)
     TextView tv_sum_price;
+    @BindView(R.id.btn_commit)
+    Button btn_commit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,22 +108,33 @@ public class MarkBuyActivity extends BaseActivity {
     void viewClick(View view) {
         switch (view.getId()) {
             case R.id.btn_commit:
-                if (TextUtils.isEmpty(et_buy_number.getText().toString())) {
-                    ToastUtils.toastutils("请输入买入数量",MarkBuyActivity.this);
-                    return;
-                }
-                Float sell_number = Float.valueOf(tv_sell_number.getText().toString());
-                int buy_number = Integer.valueOf(et_buy_number.getText().toString());
-                if (buy_number>sell_number) {
-                    ToastUtils.toastutils("买入数量大于当前卖单数量",MarkBuyActivity.this);
-                    return;
-                }
-                if (SPUtils.getString(SPUtils.safety).equals("0")) {
-                    Intent intent = new Intent(MarkBuyActivity.this,SafetyPwdActivity.class);
-                    startActivity(intent);
-                } else {
-                    myInputPwdUtil.show();
-                }
+                showLoadding("请稍候...");
+                btn_commit.setEnabled(false);
+                btn_commit.setBackgroundResource(R.drawable.button_round_gray);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dismissLoadding();
+                        btn_commit.setEnabled(true);
+                        btn_commit.setBackgroundResource(R.drawable.buttom_bg_gray);
+                        if (TextUtils.isEmpty(et_buy_number.getText().toString())) {
+                            ToastUtils.toastutils("请输入买入数量",MarkBuyActivity.this);
+                            return;
+                        }
+                        Float sell_number = Float.valueOf(tv_sell_number.getText().toString());
+                        int buy_number = Integer.valueOf(et_buy_number.getText().toString());
+                        if (buy_number>sell_number) {
+                            ToastUtils.toastutils("买入数量大于当前卖单数量",MarkBuyActivity.this);
+                            return;
+                        }
+                        if (SPUtils.getString(SPUtils.safety).equals("0")) {
+                            Intent intent = new Intent(MarkBuyActivity.this,SafetyPwdActivity.class);
+                            startActivity(intent);
+                        } else {
+                            myInputPwdUtil.show();
+                        }
+                    }
+                },1000);
                 break;
         }
     }

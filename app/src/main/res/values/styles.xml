@@ -57,7 +57,7 @@
     </style>
 
     <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">13dp</item>
     </style>
 
     <style name="dialog_anim" parent="android:Animation">

@@ -24,12 +24,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:text="发送记录"
-                    android:textColor="@color/possible_result_points"/>
+                    android:textColor="@color/white"/>
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:background="@color/possible_result_points"
+                    android:background="@color/white"
                     android:id="@+id/ll_send_line"></LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -100,7 +100,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:text="暂无数据,请重新加载"
-                        android:textSize="12sp"
+                        android:textSize="13dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
             </LinearLayout>

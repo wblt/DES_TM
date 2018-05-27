@@ -53,6 +53,7 @@ import wb.com.cctm.activity.WalletConversionActivity;
 import wb.com.cctm.activity.WalletRecordActivity;
 import wb.com.cctm.base.BaseActivity;
 import wb.com.cctm.base.BaseFragment;
+import wb.com.cctm.commons.utils.CommonUtils;
 import wb.com.cctm.commons.utils.ImageLoader;
 import wb.com.cctm.commons.utils.SPUtils;
 import wb.com.cctm.commons.utils.ToastUtils;
@@ -76,6 +77,8 @@ public class MineFragment extends BaseFragment {
     GridView gridView;
     @BindView(R.id.tv_username)
     TextView tv_username;
+    @BindView(R.id.tv_ip)
+    TextView tv_ip;
     private Unbinder unbinder;
     private String A_CURRENCY = "";
     private String QK_CURRENCY = "";
@@ -100,7 +103,7 @@ public class MineFragment extends BaseFragment {
             "零钱包",
             "能量钱包",
             "收款地址",
-            "复利设置",
+            "算力",
             "邀请好友",
             "我的订单",
             "设置"
@@ -125,6 +128,7 @@ public class MineFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         tv_username.setText(SPUtils.getString(SPUtils.nick_name));
+        tv_ip.setText("登录IP  "+ CommonUtils.getIPAddress(getActivity()));
         homepage();
     }
 
@@ -239,8 +243,6 @@ public class MineFragment extends BaseFragment {
                         startActivity(intent);
                         break;
                     case "零钱包":
-                        intent = new Intent(getActivity(),WalletRecordActivity.class);
-                        startActivity(intent);
                         break;
                     case "能量钱包":
                         break;
@@ -248,8 +250,8 @@ public class MineFragment extends BaseFragment {
                         intent = new Intent(getActivity(),ReciveCodeActivity.class);
                         startActivity(intent);
                         break;
-                    case "复利设置":
-                        intent = new Intent(getActivity(),CompoundActivity.class);
+                    case "算力":
+                        intent = new Intent(getActivity(),WalletRecordActivity.class);
                         startActivity(intent);
                         break;
                     case "邀请好友":

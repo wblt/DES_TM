@@ -40,7 +40,7 @@
                     android:id="@+id/tv_l_total"
                     android:layout_weight="1"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text="左区业绩：20"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -49,7 +49,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:textColor="@color/main_bottom_text_color_selector"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text="右区业绩:40"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -62,7 +62,7 @@
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text="1.左区邀请地址,点击链接即可复制"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -70,7 +70,7 @@
                     android:gravity="center"
                     android:id="@+id/tv_left_addr"
                     android:textColor="@color/main_bottom_text_color_selector"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text=""
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -83,7 +83,7 @@
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text="2.右区邀请地址，点击链接即可复制"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -91,7 +91,7 @@
                     android:gravity="center"
                     android:id="@+id/tv_right_addr"
                     android:textColor="@color/main_bottom_text_color_selector"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text=""
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -104,7 +104,7 @@
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/white"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text="3.APP下载地址，点击链接即可复制"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -112,7 +112,7 @@
                     android:gravity="center"
                     android:id="@+id/tv_app_addr"
                     android:textColor="@color/main_bottom_text_color_selector"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:text=""
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

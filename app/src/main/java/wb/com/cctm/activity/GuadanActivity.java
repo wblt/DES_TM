@@ -1,5 +1,6 @@
 package wb.com.cctm.activity;
 
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -9,6 +10,7 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -45,6 +47,8 @@ public class GuadanActivity extends BaseActivity {
     TextView tv_zhidao_price;
     @BindView(R.id.tv_gua_sell_number)
     TextView tv_gua_sell_number;
+    @BindView(R.id.btn_commit)
+    Button btn_commit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,28 +97,39 @@ public class GuadanActivity extends BaseActivity {
     void viewClick(View view) {
         switch (view.getId()) {
             case R.id.btn_commit:
-                try {
-                    if (TextUtils.isEmpty(et_sell_number.getText().toString())) {
-                        ToastUtils.toastutils("请输入挂卖数量",GuadanActivity.this);
-                        return;
+                showLoadding("请稍候...");
+                btn_commit.setEnabled(false);
+                btn_commit.setBackgroundResource(R.drawable.button_round_gray);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dismissLoadding();
+                        btn_commit.setEnabled(true);
+                        btn_commit.setBackgroundResource(R.drawable.buttom_bg_gray);
+                        try {
+                            if (TextUtils.isEmpty(et_sell_number.getText().toString())) {
+                                ToastUtils.toastutils("请输入挂卖数量",GuadanActivity.this);
+                                return;
+                            }
+                            if (TextUtils.isEmpty(et_sell_price.getText().toString())) {
+                                ToastUtils.toastutils("请输入挂卖价格",GuadanActivity.this);
+                                return;
+                            }
+                            int et_value = Integer.valueOf(et_sell_number.getText().toString());
+                            String guaa_sell = tv_gua_sell_number.getText().toString();
+                            float a_curr = Float.valueOf(guaa_sell);
+                            if (et_value>a_curr) {
+                                String ss =  "本次最多可转余额为"+tv_gua_sell_number.getText().toString();
+                                ToastUtils.toastutils(ss,GuadanActivity.this);
+                                return;
+                            }
+                            sell();
+                        } catch (Exception e) {
+                            ToastUtils.toastutils("价格格式有误",GuadanActivity.this);
+                            e.printStackTrace();
+                        }
                     }
-                    if (TextUtils.isEmpty(et_sell_price.getText().toString())) {
-                        ToastUtils.toastutils("请输入挂卖价格",GuadanActivity.this);
-                        return;
-                    }
-                    int et_value = Integer.valueOf(et_sell_number.getText().toString());
-                    String guaa_sell = tv_gua_sell_number.getText().toString();
-                    float a_curr = Float.valueOf(guaa_sell);
-                    if (et_value>a_curr) {
-                        String ss =  "本次最多可转余额为"+tv_gua_sell_number.getText().toString();
-                        ToastUtils.toastutils(ss,GuadanActivity.this);
-                        return;
-                    }
-                    sell();
-                } catch (Exception e) {
-                    ToastUtils.toastutils("价格格式有误",GuadanActivity.this);
-                    e.printStackTrace();
-                }
+                },1000);
                 break;
             case R.id.ig_xxxx:
                 et_sell_price.getText().clear();

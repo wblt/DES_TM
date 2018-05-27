@@ -37,14 +37,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="100"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/red"/>
                         <TextView
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="今日释放"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
 
                     </LinearLayout>
@@ -59,14 +59,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1.17"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/red"/>
                         <TextView
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="左区算力"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
 
                     </LinearLayout>
@@ -81,14 +81,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="116.60"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/red"/>
                         <TextView
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="右区算力"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
                     </LinearLayout>
 
@@ -115,14 +115,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="116.60"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/red"/>
                         <TextView
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="智能算力"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
 
                     </LinearLayout>
@@ -137,14 +137,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="116.60"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/red"/>
                         <TextView
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="接点算力"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/white"/>
 
                     </LinearLayout>
@@ -161,14 +161,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2018/04/13 13:27"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/color_green"/>
                         <TextView
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="时间"
-                            android:textSize="12dp"
+                            android:textSize="13dp"
                             android:textColor="@color/main_bottom_text_color_selector"/>
                     </LinearLayout>
                 </LinearLayout>
