@@ -42,6 +42,7 @@ import wb.com.cctm.fragment.DeliverFragment;
 import wb.com.cctm.fragment.MarketFragment;
 import wb.com.cctm.fragment.MineFragment;
 import wb.com.cctm.fragment.RecoderFragment;
+import wb.com.cctm.fragment.SuanliFragment;
 import wb.com.cctm.net.CommonCallbackImp;
 import wb.com.cctm.net.FlowAPI;
 import wb.com.cctm.net.MXUtils;
@@ -72,14 +73,15 @@ public class MainActivity extends BaseActivity {
         MarketFragment marketFragment = new MarketFragment();
         MineFragment mineFragment = new MineFragment();
         RecoderFragment recoderFragment = new RecoderFragment();
-        fragments = new Fragment[] {deliverFragment,marketFragment,recoderFragment,mineFragment};
+        SuanliFragment suanliFragment = new SuanliFragment();
+        fragments = new Fragment[] {deliverFragment,suanliFragment,recoderFragment,mineFragment};
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, deliverFragment)
-                .add(R.id.fragment_container, marketFragment)
+                .add(R.id.fragment_container, suanliFragment)
                 .add(R.id.fragment_container, recoderFragment)
                 .add(R.id.fragment_container, mineFragment)
                 .hide(deliverFragment)
-                .hide(marketFragment)
+                .hide(suanliFragment)
                 .hide(recoderFragment)
                 .hide(mineFragment)
                 .show(deliverFragment)

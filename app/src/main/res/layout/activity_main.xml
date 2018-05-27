@@ -58,7 +58,7 @@
                         android:background="@drawable/ripple_main_bg"
                         android:paddingTop="7dip"
                         android:scaleType="matrix"
-                        android:text="交易"
+                        android:text="算力"
                         android:textColor="@drawable/main_botton_text_selector"
                         android:textSize="13dp" />
                 </RelativeLayout>

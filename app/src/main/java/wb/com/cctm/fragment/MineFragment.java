@@ -67,7 +67,6 @@ import wb.com.cctm.net.MXUtils;
 import static android.app.Activity.RESULT_OK;
 
 public class MineFragment extends BaseFragment {
-
     private int REQUEST_CODE_SCAN = 111;
     @BindView(R.id.top_right_icon)
     ImageButton top_right_icon;
@@ -79,6 +78,8 @@ public class MineFragment extends BaseFragment {
     TextView tv_username;
     @BindView(R.id.tv_ip)
     TextView tv_ip;
+    @BindView(R.id.iv_head_img)
+    ImageView iv_head_img;
     private Unbinder unbinder;
     private String A_CURRENCY = "";
     private String QK_CURRENCY = "";
@@ -92,10 +93,10 @@ public class MineFragment extends BaseFragment {
             R.mipmap.lingqian_icon,
             R.mipmap.nengliang_icon,
             R.mipmap.shoukuan_icon,
-            R.mipmap.fuli_icon,
             R.mipmap.yaoqing_icon,
-            R.mipmap.dingdan_icon,
-            R.mipmap.setting_icon};
+            R.mipmap.fuli_icon,
+            R.mipmap.setting_icon,
+            R.mipmap.more_icon};
     //定义图标下方的名称数组
     private String[] name = {
             "算力钱包",
@@ -103,10 +104,10 @@ public class MineFragment extends BaseFragment {
             "零钱包",
             "能量钱包",
             "收款地址",
-            "算力",
             "邀请好友",
-            "我的订单",
-            "设置"
+            "转入区块DEC",
+            "设置",
+            "更多"
     };
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -121,6 +122,7 @@ public class MineFragment extends BaseFragment {
         appendTopBody(R.layout.activity_top_icon);
         unbinder = ButterKnife.bind(this,view);
         initview(view);
+        initgradle();
         return view;
     }
 
@@ -128,7 +130,13 @@ public class MineFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         tv_username.setText(SPUtils.getString(SPUtils.nick_name));
-        tv_ip.setText("登录IP  "+ CommonUtils.getIPAddress(getActivity()));
+        String ip = CommonUtils.getIPAddress(getActivity());
+        if (ip == null) {
+            tv_ip.setText("登录IP  "+ "0.0.0.0");
+        } else {
+            tv_ip.setText("登录IP  "+ ip);
+        }
+        ImageLoader.loadCircle(SPUtils.getString(SPUtils.headimgpath),iv_head_img);
         homepage();
     }
 
@@ -157,6 +165,13 @@ public class MineFragment extends BaseFragment {
                     intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
                     startActivityForResult(intent, REQUEST_CODE_SCAN);
                 }
+            }
+        });
+        iv_head_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),UserInfoActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -236,11 +251,6 @@ public class MineFragment extends BaseFragment {
                     case "算力钱包":
                         break;
                     case "区块DEC":
-                        intent = new Intent(getActivity(), MoveWalletActivity.class);
-                        intent.putExtra("D_CURRENCY",D_CURRENCY);
-                        intent.putExtra("QK_CURRENCY",QK_CURRENCY);
-                        intent.putExtra("A_CURRENCY",A_CURRENCY);
-                        startActivity(intent);
                         break;
                     case "零钱包":
                         break;
@@ -265,6 +275,16 @@ public class MineFragment extends BaseFragment {
                     case "设置":
                         intent = new Intent(getActivity(),SettingActivity.class);
                         startActivity(intent);
+                        break;
+                    case "转入区块DEC":
+                        intent = new Intent(getActivity(), MoveWalletActivity.class);
+                        intent.putExtra("D_CURRENCY",D_CURRENCY);
+                        intent.putExtra("QK_CURRENCY",QK_CURRENCY);
+                        intent.putExtra("A_CURRENCY",A_CURRENCY);
+                        startActivity(intent);
+                        break;
+                    case "更多":
+                        Toast.makeText(getActivity(),"开发中",Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         break;

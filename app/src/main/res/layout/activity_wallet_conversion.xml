@@ -84,7 +84,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="当前区块DEC"
+                        android:text="当前零钱"
                         android:textSize="13dp"
                         android:textColor="@color/white"/>
                 </LinearLayout>

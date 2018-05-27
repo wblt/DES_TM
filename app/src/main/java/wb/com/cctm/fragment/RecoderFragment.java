@@ -147,7 +147,7 @@ public class RecoderFragment extends BaseFragment {
     @OnClick({R.id.ll_jieshou,R.id.ll_send})
     void viewClick(View view) {
         switch (view.getId()) {
-            case R.id.ll_jieshou:
+            case R.id.ll_send:
                 tv_jieshou_title.setTextColor(getResources().getColor(R.color.white));
                 ll_jieshou_line.setBackgroundResource(R.color.white);
                 tv_send_title.setTextColor(getResources().getColor(R.color.white));
@@ -159,7 +159,7 @@ public class RecoderFragment extends BaseFragment {
                 queryId = "0";
                 sendDetail("1");
                 break;
-            case R.id.ll_send:
+            case R.id.ll_jieshou:
                 tv_send_title.setTextColor(getResources().getColor(R.color.white));
                 ll_send_line.setBackgroundResource(R.color.white);
                 tv_jieshou_title.setTextColor(getResources().getColor(R.color.white));
