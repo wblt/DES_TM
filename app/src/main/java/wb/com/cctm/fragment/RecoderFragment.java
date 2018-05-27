@@ -148,10 +148,10 @@ public class RecoderFragment extends BaseFragment {
     void viewClick(View view) {
         switch (view.getId()) {
             case R.id.ll_send:
-                tv_jieshou_title.setTextColor(getResources().getColor(R.color.white));
-                ll_jieshou_line.setBackgroundResource(R.color.white);
                 tv_send_title.setTextColor(getResources().getColor(R.color.white));
-                ll_send_line.setBackgroundResource(R.color.button_bb_gray);
+                ll_send_line.setBackgroundResource(R.color.white);
+                tv_jieshou_title.setTextColor(getResources().getColor(R.color.white));
+                ll_jieshou_line.setBackgroundResource(R.color.button_bb_gray);
                 recyc_send_list.setVisibility(View.VISIBLE);
                 recyc_jieshou_list.setVisibility(View.GONE);
                 page_type = "发送";
@@ -160,10 +160,10 @@ public class RecoderFragment extends BaseFragment {
                 sendDetail("1");
                 break;
             case R.id.ll_jieshou:
-                tv_send_title.setTextColor(getResources().getColor(R.color.white));
-                ll_send_line.setBackgroundResource(R.color.white);
                 tv_jieshou_title.setTextColor(getResources().getColor(R.color.white));
-                ll_jieshou_line.setBackgroundResource(R.color.button_bb_gray);
+                ll_jieshou_line.setBackgroundResource(R.color.white);
+                tv_send_title.setTextColor(getResources().getColor(R.color.white));
+                ll_send_line.setBackgroundResource(R.color.button_bb_gray);
                 recyc_send_list.setVisibility(View.GONE);
                 recyc_jieshou_list.setVisibility(View.VISIBLE);
                 page_type = "接收";
