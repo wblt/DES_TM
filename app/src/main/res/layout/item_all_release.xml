@@ -169,7 +169,7 @@
                             android:layout_height="wrap_content"
                             android:text="时间"
                             android:textSize="13dp"
-                            android:textColor="@color/main_bottom_text_color_selector"/>
+                            android:textColor="@color/white"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
