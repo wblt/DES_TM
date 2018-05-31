@@ -5,7 +5,7 @@
     <color name="bottom_color">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="black">#000000</color>
+    <color name="black">#303030</color>
     <color name="transparent_color">#00000000</color>
     <color name="white">#CBAE86</color>
     <color name="wallet_address_text_color">#FFFFFF</color>
@@ -45,7 +45,7 @@
     <color name="color_green">#CBAE86</color>
     <color name="line_singer">#343235</color>
     <color name="button_bg_gray">#848484</color>
-    <color name="button_bb_gray">#1E1E1E</color>
+    <color name="button_bb_gray">#424242</color>
 
 
 

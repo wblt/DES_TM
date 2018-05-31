@@ -48,7 +48,7 @@
                     android:id="@+id/tv_r_total"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="1"
-                    android:textColor="@color/main_bottom_text_color_selector"
+                    android:textColor="@color/white"
                     android:textSize="13dp"
                     android:text="右区业绩:40"
                     android:layout_width="match_parent"
@@ -69,7 +69,7 @@
                 <TextView
                     android:gravity="center"
                     android:id="@+id/tv_left_addr"
-                    android:textColor="@color/main_bottom_text_color_selector"
+                    android:textColor="@color/white"
                     android:textSize="13dp"
                     android:text=""
                     android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                 <TextView
                     android:gravity="center"
                     android:id="@+id/tv_right_addr"
-                    android:textColor="@color/main_bottom_text_color_selector"
+                    android:textColor="@color/white"
                     android:textSize="13dp"
                     android:text=""
                     android:layout_width="match_parent"
@@ -111,7 +111,7 @@
                 <TextView
                     android:gravity="center"
                     android:id="@+id/tv_app_addr"
-                    android:textColor="@color/main_bottom_text_color_selector"
+                    android:textColor="@color/white"
                     android:textSize="13dp"
                     android:text=""
                     android:layout_width="match_parent"

@@ -17,8 +17,8 @@ public class FlowAPI {
     public static final String TX_FILE_ID = "1254340937";
     public static final String TX_PRES_ID = null;
 
-//    public static String SERVER_IP = "http://139.196.225.206:8082";
-    public static String SERVER_IP = "http://decapp.top";
+    public static String SERVER_IP = "http://139.196.225.206:8082";
+//    public static String SERVER_IP = "http://decapp.top";
 
     // USER - 注册短信验证码
     public static String register_code = SERVER_IP + "/app/user/sysendMess";

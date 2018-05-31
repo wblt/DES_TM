@@ -63,12 +63,12 @@ public class InvitingInfoActivity extends BaseActivity {
     }
 
     private void initveiw() {
-        tv_left_addr.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
-        tv_left_addr.getPaint().setAntiAlias(true);//抗锯齿
-
-        tv_right_addr.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
-        tv_right_addr.getPaint().setAntiAlias(true);//抗锯齿
-
+//        tv_left_addr.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
+//        tv_left_addr.getPaint().setAntiAlias(true);//抗锯齿
+//
+//        tv_right_addr.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
+//        tv_right_addr.getPaint().setAntiAlias(true);//抗锯齿
+//
         tv_app_addr.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
         tv_app_addr.getPaint().setAntiAlias(true);//抗锯齿
     }
@@ -77,14 +77,14 @@ public class InvitingInfoActivity extends BaseActivity {
     void viewClick(View view) {
         switch (view.getId()) {
             case R.id.tv_left_addr:
-                ClipboardManager clip_left = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
-                clip_left.setText(left_str);
-                ToastUtils.toastutils("你已复制到粘贴板",InvitingInfoActivity.this);
+//                ClipboardManager clip_left = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+//                clip_left.setText(left_str);
+//                ToastUtils.toastutils("你已复制到粘贴板",InvitingInfoActivity.this);
                 break;
             case R.id.tv_right_addr:
-                ClipboardManager clip_right = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
-                clip_right.setText(right_str);
-                ToastUtils.toastutils("你已复制到粘贴板",InvitingInfoActivity.this);
+//                ClipboardManager clip_right = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+//                clip_right.setText(right_str);
+//                ToastUtils.toastutils("你已复制到粘贴板",InvitingInfoActivity.this);
                 break;
             case R.id.tv_app_addr:
                 ClipboardManager clip_app = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
