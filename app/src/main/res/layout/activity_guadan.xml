@@ -177,7 +177,7 @@
                 android:id="@+id/tv_gua_sell_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/main_bottom_text_color_selector"
+                android:textColor="@color/white"
                 android:textSize="13dp"
                 android:text="5000"/>
             <TextView

@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="全球区块链交流峰会●杭州站已圆满落幕"
-            android:textColor="@color/main_bottom_text_color_selector"
+            android:textColor="@color/white"
             android:textSize="13dp"/>
         <LinearLayout
             android:layout_marginTop="10dp"

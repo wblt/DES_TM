@@ -38,7 +38,7 @@
                             android:layout_height="wrap_content"
                             android:text="小猪"
                             android:textSize="13dp"
-                            android:textColor="@color/main_bottom_text_color_selector"/>
+                            android:textColor="@color/white"/>
                         <TextView
                             android:layout_marginLeft="5dp"
                             android:layout_gravity="center"

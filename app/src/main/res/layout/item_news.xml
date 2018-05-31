@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:text="APP版本更新"
                     android:textSize="13dp"
-                    android:textColor="@color/main_bottom_text_color_selector"/>
+                    android:textColor="@color/white"/>
                 <TextView
                     android:gravity="start"
                     android:id="@+id/tv_content"
