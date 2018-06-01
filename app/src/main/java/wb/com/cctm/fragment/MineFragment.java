@@ -47,6 +47,8 @@ import wb.com.cctm.activity.ReciveCodeActivity;
 import wb.com.cctm.activity.ReciverRecordActivity;
 import wb.com.cctm.activity.SettingActivity;
 import wb.com.cctm.activity.StepRecoderActivity;
+import wb.com.cctm.activity.TibijlActivity;
+import wb.com.cctm.activity.TibishActivity;
 import wb.com.cctm.activity.TransferRecoderActivity;
 import wb.com.cctm.activity.UserInfoActivity;
 import wb.com.cctm.activity.WalletConversionActivity;
@@ -280,12 +282,14 @@ public class MineFragment extends BaseFragment {
                         startActivity(intent);
                         break;
                     case "提币申请":
-                        //Toast.makeText(getActivity(),"待开发",Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(getActivity(),"待开放",Toast.LENGTH_SHORT).show();
+//                        intent = new Intent(getActivity(),TibishActivity.class);
+//                        startActivity(intent);
                         break;
                     case "提币记录":
-                        //Toast.makeText(getActivity(),"待开发",Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(getActivity(),"待开放",Toast.LENGTH_SHORT).show();
+//                        intent = new Intent(getActivity(),TibijlActivity.class);
+//                        startActivity(intent);
                         break;
                     default:
                         break;

@@ -146,4 +146,14 @@ public class FlowAPI {
     // MARKET - 释放K线
     public static String releaseDepth = SERVER_IP + "/app/market/releaseDepth";
 
+    // MY - 提币申请
+    public static String tequila = SERVER_IP + "/app/my/tequila";
+
+    // MY - 提币记录
+    public static String tequilaDetail = SERVER_IP + "/app/my/tequilaDetail";
+
+    // MY - 提币取消
+    public static String tequilaCancle = SERVER_IP + "/app/my/tequilaCancle";
+
+
 }

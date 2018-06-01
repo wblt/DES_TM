@@ -5,6 +5,7 @@ import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -128,5 +129,14 @@ public class StringUtil {
             }
         }
         return true;
+    }
+
+    public static String formatUnixTime(long unixTime)
+    {
+        String res;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        long msl=(long)unixTime;
+        res = simpleDateFormat.format(msl);
+        return res;
     }
 }

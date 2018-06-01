@@ -97,8 +97,6 @@ public class FinancialTransferActivity extends BaseActivity {
         if (address != null &&!TextUtils.isEmpty(address)) {
             et_wallet_address.setText(address);
         }
-
-
         dialog = ActionSheet.showSheet(this,R.layout.actionsheet_send_type);
         TextView cancel = dialog.findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {

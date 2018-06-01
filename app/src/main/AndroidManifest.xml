@@ -240,7 +240,9 @@
         <activity android:name=".activity.ChargeActivity" />
         <activity android:name=".activity.MarketActivity" />
         <activity android:name=".activity.MineBuyActivity" />
-        <activity android:name=".activity.MineSellActivity"></activity>
+        <activity android:name=".activity.MineSellActivity" />
+        <activity android:name=".activity.TibishActivity" />
+        <activity android:name=".activity.TibijlActivity"></activity>
     </application>
 
 </manifest>
