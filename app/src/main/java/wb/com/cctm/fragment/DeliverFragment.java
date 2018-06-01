@@ -116,7 +116,6 @@ public class DeliverFragment extends BaseFragment {
     private List<DepthBean> depthBeanList;
     private List<ReleaseDepthBean> releaseDepthBeanList;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -158,7 +157,10 @@ public class DeliverFragment extends BaseFragment {
                 startActivity(intent);
                 break;
             case R.id.ll_address:
-                intent = new Intent(getActivity(),ReciveCodeActivity.class);
+                intent = new Intent(getActivity(), MoveWalletActivity.class);
+                intent.putExtra("D_CURRENCY",SPUtils.getString("D_CURRENCY"));
+                intent.putExtra("QK_CURRENCY",SPUtils.getString("QK_CURRENCY"));
+                intent.putExtra("A_CURRENCY",SPUtils.getString("A_CURRENCY"));
                 startActivity(intent);
                 break;
             case R.id.ll_dui:

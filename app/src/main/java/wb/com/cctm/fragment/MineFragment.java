@@ -94,9 +94,9 @@ public class MineFragment extends BaseFragment {
             R.mipmap.nengliang_icon,
             R.mipmap.shoukuan_icon,
             R.mipmap.yaoqing_icon,
-            R.mipmap.fuli_icon,
-            R.mipmap.setting_icon,
-            R.mipmap.more_icon};
+            R.mipmap.tibi_shengqing,
+            R.mipmap.tibi_jilu,
+            R.mipmap.setting_icon};
     //定义图标下方的名称数组
     private String[] name = {
             "算力钱包",
@@ -105,9 +105,9 @@ public class MineFragment extends BaseFragment {
             "能量钱包",
             "收款地址",
             "邀请好友",
-            "转入区块DEC",
-            "设置",
-            "更多"
+            "提币申请",
+            "提币记录",
+            "设置"
     };
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -206,6 +206,9 @@ public class MineFragment extends BaseFragment {
                     QK_CURRENCY = pd_obj.getString("QK_CURRENCY");
                     W_ENERGY = pd_obj.getString("W_ENERGY");
                     S_CURRENCY = pd_obj.getString("S_CURRENCY");
+                    SPUtils.putString("D_CURRENCY",D_CURRENCY);
+                    SPUtils.putString("A_CURRENCY",A_CURRENCY);
+                    SPUtils.putString("QK_CURRENCY",QK_CURRENCY);
                     initgradle();
                 } else {
                     ToastUtils.toastutils(message,getActivity());
@@ -276,15 +279,13 @@ public class MineFragment extends BaseFragment {
                         intent = new Intent(getActivity(),SettingActivity.class);
                         startActivity(intent);
                         break;
-                    case "转入区块DEC":
-                        intent = new Intent(getActivity(), MoveWalletActivity.class);
-                        intent.putExtra("D_CURRENCY",D_CURRENCY);
-                        intent.putExtra("QK_CURRENCY",QK_CURRENCY);
-                        intent.putExtra("A_CURRENCY",A_CURRENCY);
-                        startActivity(intent);
+                    case "提币申请":
+                        //Toast.makeText(getActivity(),"待开发",Toast.LENGTH_SHORT).show();
+
                         break;
-                    case "更多":
-                        Toast.makeText(getActivity(),"开发中",Toast.LENGTH_SHORT).show();
+                    case "提币记录":
+                        //Toast.makeText(getActivity(),"待开发",Toast.LENGTH_SHORT).show();
+
                         break;
                     default:
                         break;
@@ -314,6 +315,29 @@ public class MineFragment extends BaseFragment {
             } else {
                 // Permission Denied拒绝
                 Toast.makeText(getActivity(),"未获得授权！",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //        // 扫描二维码/条码回传
+        if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
+            if (data != null) {
+                final String content = data.getStringExtra(Constant.CODED_CONTENT);
+                // 传递进去
+                showLoadding("请稍候...");
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dismissLoadding();
+                        Intent intent = new Intent(getActivity(),FinancialTransferActivity.class);
+                        intent.putExtra("address",content);
+                        startActivity(intent);
+                    }
+                },1000);
+
             }
         }
     }
