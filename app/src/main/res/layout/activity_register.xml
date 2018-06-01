@@ -145,9 +145,8 @@
                     android:hint="请输入您的邀请码(必填)"
                     android:textColorHint="@color/hint_text_color"
                     android:singleLine="true"
-                    android:maxLength="11"
-                    android:inputType="phone"
-                    android:digits="1234567890"/>
+                    android:inputType="text"
+                    android:digits="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
             </LinearLayout>
         </LinearLayout>
 
