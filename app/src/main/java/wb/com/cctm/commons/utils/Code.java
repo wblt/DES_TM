@@ -65,17 +65,17 @@ public class Code {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setTextSize(font_size);
+
         //画验证码
         for (int i = 0; i < code.length(); i++) {
             randomTextStyle(paint);
             randomPadding();
             c.drawText(code.charAt(i) + "", padding_left, padding_top, paint);
         }
-        //画线条
-        for (int i = 0; i < line_number; i++) {
-            drawLine(c, paint);
-        }
-
+//        //画线条
+//        for (int i = 0; i < line_number; i++) {
+//            drawLine(c, paint);
+//        }
         c.save( Canvas.ALL_SAVE_FLAG );//保存
         c.restore();//
         return bp;
@@ -104,6 +104,7 @@ public class Code {
         paint.setColor(color);
         canvas.drawLine(startX, startY, stopX, stopY, paint);
     }
+
     //生成随机颜色
     private int randomColor() {
         return randomColor(1);
