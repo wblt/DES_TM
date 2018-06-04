@@ -59,7 +59,6 @@ public class MainActivity extends BaseActivity {
     private long exitTime = 0;
     private ProgressDialog pBar;
     private VersionBean versionBean;
-    private boolean isDown = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,6 +129,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        permission();
+    }
+
+    // 获取权限
+    private void permission() {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -139,10 +143,7 @@ public class MainActivity extends BaseActivity {
                     REQUEST_EXTERNAL_STORAGE);
         } else {
             initTools();
-            if (!isDown) {
-                // 获取版本信息
-                getNewVersion();
-            }
+            getNewVersion();
         }
     }
 
@@ -222,17 +223,7 @@ public class MainActivity extends BaseActivity {
                             public void onClick(
                                     DialogInterface dialog,
                                     int which) {
-                                int permission = ActivityCompat.checkSelfPermission(MainActivity.this,
-                                        Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                                if (permission != PackageManager.PERMISSION_GRANTED) {
-                                    // We don't have permission so prompt the user
-                                    ActivityCompat.requestPermissions(MainActivity.this, PERMISSIONS_STORAGE,
-                                            REQUEST_EXTERNAL_STORAGE);
-                                } else {
-                                    initTools();
-                                    isDown = true;
                                     downFile(url);
-                                }
                             }
                         }).show();
     }
@@ -253,10 +244,9 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onSuccess(File result) {
                 Toast.makeText(MainActivity.this, "下载成功", Toast.LENGTH_SHORT).show();
-                installApk(filepath);
                 pBar.dismiss();
                 pBar = null;
-                isDown = false;
+                installApk(filepath);
             }
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
@@ -264,7 +254,6 @@ public class MainActivity extends BaseActivity {
                 Toast.makeText(MainActivity.this, "下载失败，请检查网络和SD卡", Toast.LENGTH_SHORT).show();
                 pBar.dismiss();
                 pBar = null;
-                isDown = false;
             }
             @Override
             public void onCancelled(CancelledException cex) {
@@ -322,13 +311,7 @@ public class MainActivity extends BaseActivity {
                 // Permission Granted准许
                 Toast.makeText(MainActivity.this,"已获得授权！",Toast.LENGTH_SHORT).show();
                 initTools();
-                if (versionBean != null) {
-                    int code = Integer.valueOf(versionBean.getV_VERSION_CODE());
-                    if (code>VersionUtil.getAppVersionCode(MainActivity.this)) {
-                        isDown = true;
-                        downFile(versionBean.getV_ADDR());
-                    }
-                }
+                getNewVersion();
             } else {
                 // Permission Denied拒绝
                 Toast.makeText(MainActivity.this,"未获得授权！",Toast.LENGTH_SHORT).show();

@@ -45,20 +45,29 @@ public class SplashActivity extends BaseActivity {
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE };
-    private boolean isDown = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
     }
 
+    private void permission() {
+        int permission = ActivityCompat.checkSelfPermission(SplashActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(SplashActivity.this, PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE);
+        } else {
+            initTools();
+            getNewVersion();
+        }
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-        if (!isDown) {
-            // 获取版本信息
-            getNewVersion();
-        }
+        permission();
     }
 
     private void getNewVersion() {
@@ -89,6 +98,7 @@ public class SplashActivity extends BaseActivity {
         });
     }
 
+
     private void showUpdateDialog(String newVersion, final String url) {
         String verName = VersionUtil.getAppVersionName(SplashActivity.this);
         new AlertDialog.Builder(SplashActivity.this)
@@ -102,17 +112,7 @@ public class SplashActivity extends BaseActivity {
                             public void onClick(
                                     DialogInterface dialog,
                                     int which) {
-                                int permission = ActivityCompat.checkSelfPermission(SplashActivity.this,
-                                        Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                                if (permission != PackageManager.PERMISSION_GRANTED) {
-                                    // We don't have permission so prompt the user
-                                    ActivityCompat.requestPermissions(SplashActivity.this, PERMISSIONS_STORAGE,
-                                            REQUEST_EXTERNAL_STORAGE);
-                                } else {
-                                    initTools();
-                                    isDown = true;
-                                    downFile(url);
-                                }
+                                downFile(url);
                             }
                         }).show();
     }
@@ -133,10 +133,9 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void onSuccess(File result) {
                 Toast.makeText(SplashActivity.this, "下载成功", Toast.LENGTH_SHORT).show();
-                installApk(filepath);
                 pBar.dismiss();
                 pBar = null;
-                isDown = false;
+                installApk(filepath);
             }
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
@@ -144,7 +143,6 @@ public class SplashActivity extends BaseActivity {
                 Toast.makeText(SplashActivity.this, "下载失败，请检查网络和SD卡", Toast.LENGTH_SHORT).show();
                 pBar.dismiss();
                 pBar = null;
-                isDown = false;
             }
             @Override
             public void onCancelled(CancelledException cex) {
@@ -224,13 +222,7 @@ public class SplashActivity extends BaseActivity {
                 // Permission Granted准许
                 Toast.makeText(SplashActivity.this,"已获得授权！",Toast.LENGTH_SHORT).show();
                 initTools();
-                if (versionBean != null) {
-                    int code = Integer.valueOf(versionBean.getV_VERSION_CODE());
-                    if (code>VersionUtil.getAppVersionCode(SplashActivity.this)) {
-                        isDown = true;
-                        downFile(versionBean.getV_ADDR());
-                    }
-                }
+                getNewVersion();
             } else {
                 // Permission Denied拒绝
                 Toast.makeText(SplashActivity.this,"未获得授权！",Toast.LENGTH_SHORT).show();
