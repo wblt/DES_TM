@@ -69,7 +69,6 @@ public class MainActivity extends BaseActivity {
 
     private void initView() {
         DeliverFragment deliverFragment = new DeliverFragment();
-        MarketFragment marketFragment = new MarketFragment();
         MineFragment mineFragment = new MineFragment();
         RecoderFragment recoderFragment = new RecoderFragment();
         SuanliFragment suanliFragment = new SuanliFragment();
@@ -300,7 +299,6 @@ public class MainActivity extends BaseActivity {
         }
         startActivity(intent);
     }
-
 
 
     @Override
