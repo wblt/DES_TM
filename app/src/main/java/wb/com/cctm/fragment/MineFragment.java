@@ -282,14 +282,14 @@ public class MineFragment extends BaseFragment {
                         startActivity(intent);
                         break;
                     case "提币申请":
-                        Toast.makeText(getActivity(),"待开放",Toast.LENGTH_SHORT).show();
-//                        intent = new Intent(getActivity(),TibishActivity.class);
-//                        startActivity(intent);
+//                        Toast.makeText(getActivity(),"待开放",Toast.LENGTH_SHORT).show();
+                        intent = new Intent(getActivity(),TibishActivity.class);
+                        startActivity(intent);
                         break;
                     case "提币记录":
-                        Toast.makeText(getActivity(),"待开放",Toast.LENGTH_SHORT).show();
-//                        intent = new Intent(getActivity(),TibijlActivity.class);
-//                        startActivity(intent);
+//                        Toast.makeText(getActivity(),"待开放",Toast.LENGTH_SHORT).show();
+                        intent = new Intent(getActivity(),TibijlActivity.class);
+                        startActivity(intent);
                         break;
                     default:
                         break;
