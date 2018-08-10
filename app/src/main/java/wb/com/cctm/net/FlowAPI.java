@@ -155,5 +155,4 @@ public class FlowAPI {
     // MY - 提币取消
     public static String tequilaCancle = SERVER_IP + "/app/my/tequilaCancle";
 
-
 }

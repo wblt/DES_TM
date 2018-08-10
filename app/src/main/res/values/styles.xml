@@ -42,7 +42,7 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-<!-- 左边的箭头指示-->
+    <!-- 左边的箭头指示-->
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
         <item name="color">@android:color/white</item>
